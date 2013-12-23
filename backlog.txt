@@ -8,7 +8,7 @@
     :password
   - Forget Password
     :email
-2. Profile
+2. Show Up
   - show profile
     :menampilkan informasi dari pengguna
   - show galery
