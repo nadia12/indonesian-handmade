@@ -1,4 +1,4 @@
-HandmadeIndonesia
+Indonesian-Handmade
 
 Deskripsi: 
 Website ini adalah suatu wadah komunitas para pembuat kerajinan tangan. para pengunjung website bisa sharing dan menunjukkan hasil kreasi mereka masing masing.
@@ -10,7 +10,7 @@ User biasa: User dapat menggunakan pelayanan website jika user telah mempunyai a
 Admin: manage content
 
 
-Main Menu : JualBeli, Tutorial, About us, Peraturan
+Main Menu : Etalase, Tutorial, Peraturan
 
 Main Page:
 - Ada tombol sign-up & sign in
@@ -20,7 +20,7 @@ Main Page:
 Halaman Profile:
 - User yang telah Sign up/in mempunyai profilenya sendiri, berisi profile user dan kumpulan foto-foto yang telah diupload.
 
-Halaman JualBeli
+Halaman Etalase
 - berisi foto-foto kerajinan tangan yang akan dijual
 - Foto bisa ditampilkan berdasarkan kategory.
 
