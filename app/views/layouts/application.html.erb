@@ -16,6 +16,14 @@
   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
 <% end %>
 
+
+<ul>
+  <li><%= link_to 'Home', root_path %></li>
+  <li><%= link_to 'Category', categories_path %></li>
+  <li><%= link_to 'Tutorial', tutorials_path %></li>
+  <li><%= link_to 'Etalase', etalases_path %></li>
+</ul>
+
 <p class="alert"><%= alert %></p>
 <%= yield %>
 
