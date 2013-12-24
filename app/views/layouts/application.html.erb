@@ -1,31 +1,249 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>IndonesianHandmade</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+      <div class="row">
+  <div class="large-12 columns">
+ 
+    <!-- Navigation -->
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <!-- Title Area -->
+          <li class="name">
+            <h1>
+              <li><%= link_to 'IndonesianHanmade', root_path %></li>
+            </h1>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+        </ul>
+ 
+        <section class="top-bar-section">
+          <ul class="left">
+            <li class="has-dropdown not-click"><a href="#">Tutorial</a>
+              <ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+                <li><label>Level One</label></li>
+                <li><%= link_to 'Tutorial', tutorials_path %></li>
+                <li><a href="#">Sub-item 5</a></li>
+              </ul>
+            </li>
+            <li class="has-dropdown not-click"><a href="#">Etalase</a>
+              <ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+                <li><label>Level One</label></li>
+                <li><%= link_to 'Etalase', etalases_path %></li>
+                <li><a href="#">Sub-item 5</a></li>
+              </ul>
+            </li>
+            <li><%= link_to 'Category', categories_path %></li>
+          </ul>
+          <ul class="right">
+          <% if user_signed_in? %>
+            Logged in as <strong><%= current_user.email %></strong>.
+            <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+          <% else %>
+            <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
+            <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+          <% end %>
+          </ul>
+        </section>
+      </nav>
+ 
+    <!-- End Navigation -->
+  
+    </div>
+  </div>
+ 
+ 
+  <div class="row">
+    <div class="large-12 columns">
+ 
+    <!-- Desktop Slider -->
+ 
+<!--       <div class="hide-for-small">
+        <div id="featured">
+              <img src="http://placehold.it/1000x400&text=Slide Image" alt="slide image">
+              <img src="http://placehold.it/1000x400&text=Slide Image" alt="slide image">
+              <img src="http://placehold.it/1000x400&text=Slide Image" alt="slide image">
+          </div>
+        </div> -->
+    <div class="orbit-container">
+      <ul class="example-orbit orbit-slides-container" data-orbit="" style="height: 280px;">
+        <li class="" style="z-index: 2; margin-left: 100%;">
+          <img src="http://placehold.it/1000x300/A92B48/fff" alt="slide 1">
+          <div class="orbit-caption">
+            Caption One.
+          </div>
+        </li>
+        <li class="active" style="z-index: 4; margin-left: 0%;">
+          <img src="http://placehold.it/1000x300/A92B48/fff" alt="slide 2">
+          <div class="orbit-caption">
+            Caption Two.
+          </div>
+        </li>
+        <li class="" style="z-index: 2; margin-left: 100%;">
+          <img src="http://placehold.it/1000x300/A92B48/fff" alt="slide 3">
+          <div class="orbit-caption">
+            Caption Three.
+          </div>
+        </li>
+      </ul>
+      <a href="#" class="orbit-prev"><span></span></a>
+      <a href="#" class="orbit-next"><span></span></a>
+        <div class="orbit-timer paused"><span></span>
+          <div class="orbit-progress" style="width: 0%;">
+          </div>
+        </div>
+      <div class="orbit-slide-number">
+        <span>2</span> of <span>3</span>
+      </div>
+      <div class="orbit-bullets-container">
+        <ol class="orbit-bullets">
+          <li data-orbit-slide="0" class=""></li>
+          <li data-orbit-slide="1" class="active"></li>
+          <li data-orbit-slide="2" class=""></li>
+        </ol>
+      </div>
+    </div>
+    <!-- End Desktop Slider -->
+ 
+ 
+    <!-- Mobile Header -->
+ 
+ 
+    <div class="row">
+      <div class="small-12 show-for-small"><br>
+        <img src="http://placehold.it/1000x600&text=For Small Screens" />
+      </div>
+    </div>
+ 
+ 
+  <!-- End Mobile Header -->
+ 
+    </div>
+  </div><br>
+ 
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="row">
+ 
+    <!-- Thumbnails -->
+ 
+        <div class="large-3 small-6 columns">
+          <img src="http://placehold.it/250x250&text=Thumbnail" />
+          <h6 class="panel">Description</h6>
+        </div>
+ 
+        <div class="large-3 small-6 columns">
+          <img src="http://placehold.it/250x250&text=Thumbnail" />
+          <h6 class="panel">Description</h6>
+        </div>
+ 
+        <div class="large-3 small-6 columns">
+          <img src="http://placehold.it/250x250&text=Thumbnail" />
+          <h6 class="panel">Description</h6>
+        </div>
+ 
+        <div class="large-3 small-6 columns">
+          <img src="http://placehold.it/250x250&text=Thumbnail" />
+          <h6 class="panel">Description</h6>
+        </div>
+ 
+    <!-- End Thumbnails -->
+ 
+      </div>
+    </div>
+  </div>
+ 
+ 
+ 
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="row">
+ 
+    <!-- Content -->
+ 
+        <div class="large-8 columns">
+          <div class="panel radius">
+ 
+          <div class="row">
+          <div class="large-6 small-6 columns">
+ 
+            <h4>Header</h4><hr/>
+            <h5 class="subheader">Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis.
+            </h5>
+ 
+          <div class="show-for-small" align="center">
+            <a href="#" class="small radius button">Call To Action!</a><br>
+ 
+            <a href="#" class="small radius button">Call To Action!</a>
+          </div>
+ 
+          </div>
+          <div class="large-6 small-6 columns">
+ 
+            <p>Suspendisse ultrices ornare tempor. Aenean eget ultricies libero. Phasellus non ipsum eros. Vivamus at dignissim massa. Aenean dolor libero, blandit quis interdum et, malesuada nec ligula. Nullam erat erat, eleifend sed pulvinar ac. Suspendisse ultrices ornare tempor. Aenean eget ultricies libero.
+          </p>
+        </div>
+ 
+        </div>
+        </div>
+        </div>
+ 
+          <div class="large-4 columns hide-for-small">
+ 
+          <h4>Get In Touch!</h4><hr/>
+ 
+          <a class="large button expand" href="#">
+            Call To Action!
+          </a>
+ 
+          <a class="large button expand" href="#">
+            Call To Action!
+          </a>
+ 
+ 
+        </div>
+ 
+    <!-- End Content -->
+ 
+      </div>
+    </div>
+  </div>
+ 
+    <!-- Footer -->
+ 
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr>
+      <div class="row">
+        <div class="large-6 columns">
+          <p>© Built with pleasure until the real "DONE".</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 <ul>
-  <li><%= link_to 'Home', root_path %></li>
-  <li><%= link_to 'Category', categories_path %></li>
-  <li><%= link_to 'Tutorial', tutorials_path %></li>
-  <li><%= link_to 'Etalase', etalases_path %></li>
+
 </ul>
 
 <p class="alert"><%= alert %></p>
-<%= yield %>
-
-</body>
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>
