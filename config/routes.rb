@@ -1,4 +1,6 @@
 IndonesianHandmade::Application.routes.draw do
+  resources :comments
+
   root :to => "home#index"
   get "home/index"
 
