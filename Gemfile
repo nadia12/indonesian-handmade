@@ -17,5 +17,6 @@ gem 'cancan'
 gem 'kaminari'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'ckeditor'
 
 gem 'debugger', group: [:development, :test]

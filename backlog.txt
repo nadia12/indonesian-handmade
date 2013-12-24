@@ -8,6 +8,7 @@
     :password
   - Forget Password
     :email
+
 2. Show Up
   - show profile
     :menampilkan informasi dari pengguna
@@ -17,6 +18,7 @@
     :menampilkan tutorial-tutorial yang telah dibuat pengguna
   - show etalase
     :menampilkan etalase barang jualan
+
 3. tutorial
   - create tutorial
     :isi title
@@ -41,12 +43,15 @@
     :pilih tutorial kemudian hapus
   - edit tutorial
     :pilih tutorial kemudian ubah
+
 4. Category
   + Create, update, delete category
     :nama
+
 5. Comment 
     :user_id
     :comentar
+    
 6. Etalase
   - Create Etalase handmade
     :isi title
