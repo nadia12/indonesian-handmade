@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @etalase.title %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= @etalase.photo %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @etalase.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @etalase.price %>
+</p>
+
+<%= link_to 'Edit', edit_etalase_path(@etalase) %> |
+<%= link_to 'Back', etalases_path %>

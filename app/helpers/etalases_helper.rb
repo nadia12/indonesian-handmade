@@ -1,0 +1,2 @@
+module EtalasesHelper
+end

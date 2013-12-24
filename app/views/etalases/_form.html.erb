@@ -1,0 +1,37 @@
+<%= form_for(@etalase) do |f| %>
+  <% if @etalase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@etalase.errors.count, "error") %> prohibited this etalase from being saved:</h2>
+
+      <ul>
+      <% @etalase.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+
+   <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :photo %><br>
+    <%= f.file_field :photo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br>
+     <%= f.cktext_area :description, width: 250, :cols => 40, :ckeditor => {:toolbar => "mini"} %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
