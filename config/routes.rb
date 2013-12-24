@@ -1,7 +1,12 @@
 IndonesianHandmade::Application.routes.draw do
+  root :to => "home#index"
+  get "home/index"
+
+  resources :etalases
+  resources :categories
   resources :tutorials
 
-  get "home/index"
   devise_for :users
-  root :to => "home#index"
+ 
+  mount Ckeditor::Engine => "/ckeditor"
 end

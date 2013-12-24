@@ -25,12 +25,14 @@
     :upload gambar-gambar
     :create article tutorial pembuatan handmade
     :milih category
+
   - list tutorial
     :daftar semua tutorial yang ada di dalam category tertentu
       -> Judul
       -> thumbnail
     :delete tutorial
     :edit tutorial
+    
   - show tutorial
     :menampilkan tutorial yang dipilih oleh user
       :urutan tampilan
@@ -51,7 +53,7 @@
 5. Comment 
     :user_id
     :comentar
-    
+
 6. Etalase
   - Create Etalase handmade
     :isi title
