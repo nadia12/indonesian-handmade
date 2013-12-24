@@ -1,4 +1,8 @@
 IndonesianHandmade::Application.routes.draw do
+
+  get "show_up/profile"
+  resources :tutorials
+
   resources :comments
 
   root :to => "home#index"
