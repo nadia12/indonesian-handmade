@@ -1,4 +1,5 @@
 IndonesianHandmade::Application.routes.draw do
+  get "show_up/profile"
   resources :tutorials
 
   get "home/index"
