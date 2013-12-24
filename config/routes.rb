@@ -1,16 +1,12 @@
 IndonesianHandmade::Application.routes.draw do
-
-  get "show_up/profile"
-  resources :tutorials
-
-  resources :comments
-
   root :to => "home#index"
+  get "show_up/profile"
   get "home/index"
 
   resources :etalases
   resources :categories
   resources :tutorials
+  resources :comments
 
   devise_for :users
  
