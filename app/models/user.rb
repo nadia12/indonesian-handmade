@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  validates :name, :address, :phone, presence: true
 
-  
+  validates :name, :address, :phone, presence: true
+  has_many :tutorials
 
 end
