@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20131224064355) do
   create_table "tutorials", force: true do |t|
     t.string   "title"
     t.text     "content"
+    t.string   "photo"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"

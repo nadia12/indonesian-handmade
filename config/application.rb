@@ -20,5 +20,16 @@ module IndonesianHandmade
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+
+    config.to_prepare do
+      Devise::SessionsController.layout "devise"
+      Devise::RegistrationsController.layout "devise"
+      # Devise::ConfirmationsController.layout "your_layout_name"
+      # Devise::UnlocksController.layout "your_layout_name"
+      # Devise::PasswordsController.layout "your_layout_name"
+    end
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| 
+      "#{html_tag}".html_safe 
+    }
   end
 end
