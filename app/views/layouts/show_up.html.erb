@@ -57,12 +57,32 @@
       </nav>
     </div>
   </div>
-  <div class="row">
-    <div class="large-12 columns">
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
-      <%= javascript_include_tag "application" %>
+  <section role="main">
+    <div class="row">
+      <div class="large-3 medium-4 columns">
+        <nav>
+    <ul class="side-nav">
+      <li class="heading">Setup</li>
+      <li><%= link_to 'Edit Profile and avatar', edit_user_registration_path %></li>
+
+      <li class="divider"></li>
+
+      <li class="heading">On My Own</li>
+      <li><%= link_to 'My Tutorials', show_up_tutorials_path %></li>
+      <li><a href="../css.html" data-search="Styles">My Etalase</a></li>
+      <li><a href="../css.html" data-search="Styles">My Comment</a></li>
+
+      <li class="divider"></li>
+
+    </ul>
+  </nav>
+      </div>
+      <div class="large-9 medium-8 columns">
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </div>
     </div>
-  </div>
+  </section>
+    <%= javascript_include_tag "application" %>
   </body>
 </html>

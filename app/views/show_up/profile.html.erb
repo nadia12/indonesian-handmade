@@ -1,9 +1,11 @@
-<h1>ShowUp#profile</h1>
-<p>Find me in app/views/show_up/profile.html.erb</p>
-<ul>
-<li><%= @user.name %></li>
-<li><%= @user.email %></li>
-<li><%= @user.phone %></li>
-<li><%= @user.address %></li>
-<li><%= image_tag @user.avatar_url(:small_thumb) %></li>
+<ul class="vcard">
+  <li><%= image_tag @user.avatar_url(:thumb), class: "th radius" %></li>
+  <li class="fn"><%= @user.name %></li>
+  <li class="email"><%= @user.email %></li>
+  <li><%= @user.phone %></li>
+  <li class="street-address"><%= @user.address %></li>
 </ul>
+<dl>
+  <dt>Biography</dt>
+  <dd>Definition Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam id dolor id nibh ultricies vehicula ut id elit.</dd>
+</dl>

@@ -23,7 +23,7 @@ module IndonesianHandmade
 
     config.to_prepare do
       Devise::SessionsController.layout "devise"
-      Devise::RegistrationsController.layout "devise"
+      Devise::RegistrationsController.layout "show_up"
       # Devise::ConfirmationsController.layout "your_layout_name"
       # Devise::UnlocksController.layout "your_layout_name"
       # Devise::PasswordsController.layout "your_layout_name"
