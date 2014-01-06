@@ -5,6 +5,7 @@ class TutorialsController < ApplicationController
   end
 
   def show
+    @comment = @tutorial.comments.new
   end
 
   def new
@@ -15,8 +16,8 @@ class TutorialsController < ApplicationController
   end
 
   def create
-    # @tutorial = current_user.tutorials.new(tutorial_params)
-    @tutorial = Tutorial.new(tutorial_params)
+    @tutorial = current_user.tutorials.new(tutorial_params)
+    # @tutorial = Tutorial.new(tutorial_params)
 
     respond_to do |format|
       if @tutorial.save
@@ -50,6 +51,7 @@ class TutorialsController < ApplicationController
   private
     def set_tutorial
       @tutorial = Tutorial.find(params[:id])
+      @comments = @tutorial.comments
     end
 
     def tutorial_params

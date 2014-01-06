@@ -4,10 +4,10 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Photo</th>
+      <th>Sample Product</th>
       <th></th>
       <th></th>
-      <th></th>
+
     </tr>
   </thead>
 
@@ -15,8 +15,7 @@
     <% @tutorials.each do |tutorial| %>
       <tr>
         <td><%= link_to tutorial.title, tutorial %></td>
-        <%= image_tag tutorial.imageable.image_url(:thumb) if tutorial.imageable.image? %>
-        <td><%= tutorial.photo%></td>
+        <td></td>
         <td><%= link_to 'Edit', edit_tutorial_path(tutorial) %></td>
         <td><%= link_to 'Destroy', tutorial, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -10,15 +10,19 @@
       </ul>
     </div>
   <% end %>
+   <div>
+   <%= f.hidden_field :imageable_id %>
+   </div>
 
    <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
 
-   <div class="field">
-    <%= f.label :image, 'Upload Sample Product' %>
-    <%= f.file_field :image %>
+  <div>
+   <%= f.fields_for :imageable do |i| %>
+    <%= i.label :image, 'Upload Sample Product' %>
+    <%= i.file_field :image %>
   </div>
 
   <div>

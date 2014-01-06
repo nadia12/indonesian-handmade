@@ -39,9 +39,18 @@ ActiveRecord::Schema.define(version: 20140106045851) do
     t.integer  "user_id"
   end
 
+  create_table "pictures", force: true do |t|
+    t.string   "imageable_type"
+    t.integer  "imageable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image"
+  end
+
   create_table "tutorials", force: true do |t|
     t.string   "title"
     t.text     "content"
+    t.string   "photo"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
