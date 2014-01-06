@@ -20,5 +20,35 @@
   <%= raw @etalase.description %>
 </p>
 
-<%= link_to 'Edit', edit_etalase_path(@etalase) %> |
-<%= link_to 'Back', etalases_path %>
+<%= form_for(@comment) do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this tutorial from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :post_new_comment %><br>
+    <%= f.text_field :content %>
+  </div>
+
+  <%= f.hidden_field :commentable_id %>
+  <%= f.hidden_field :commentable_type %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<% @comments.includes(:user).each do |comment|  %>
+  <ul>
+    <li><%= image_tag comment.user.avatar_url(:small_thumb), class: "th radius" %></li>
+    <li><%= comment.content %></li>
+  </ul>
+<% end %>

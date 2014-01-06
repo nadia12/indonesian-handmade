@@ -6,6 +6,7 @@ class EtalasesController < ApplicationController
   end
 
   def show
+    @comment = @etalase.comments.new
   end
 
   def new
@@ -52,6 +53,7 @@ class EtalasesController < ApplicationController
   private
       def set_etalase
       @etalase = Etalase.find(params[:id])
+      @comments = @etalase.comments
     end
 
       def etalase_params

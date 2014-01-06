@@ -7,5 +7,5 @@ class User < ActiveRecord::Base
   validates :name, :address, :phone, presence: true
   has_many :tutorials
   has_many :etalases
-
+  has_many :comments
 end

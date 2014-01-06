@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    @comment = current_user.comments.new(comment_params)
 
     respond_to do |format|
       if @comment.save
@@ -55,6 +55,6 @@ class CommentsController < ApplicationController
     end
 
       def comment_params
-      params.require(:comment).permit(:content)
+      params.require(:comment).permit(:content,:commentable_id, :commentable_type)
     end
 end
