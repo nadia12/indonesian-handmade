@@ -15,7 +15,8 @@ class TutorialsController < ApplicationController
   end
 
   def create
-    @tutorial = current_user.tutorials.new(tutorial_params)
+    # @tutorial = current_user.tutorials.new(tutorial_params)
+    @tutorial = Tutorial.new(tutorial_params)
 
     respond_to do |format|
       if @tutorial.save
