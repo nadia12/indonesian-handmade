@@ -9,4 +9,8 @@ class ShowUpController < ApplicationController
     @mytutorials = current_user.tutorials
   end
   
+  def myetalases
+    @myetalases = current_user.etalases
+  end
+
 end

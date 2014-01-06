@@ -16,7 +16,7 @@ class EtalasesController < ApplicationController
   end
 
   def create
-    @etalase = Etalase.new(etalase_params)
+    @etalase = current_user.etalases.new(etalase_params)
 
     respond_to do |format|
       if @etalase.save

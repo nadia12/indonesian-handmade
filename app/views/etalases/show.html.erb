@@ -4,6 +4,11 @@
   <strong>Title:</strong>
   <%= @etalase.title %>
 </p>
+  
+<p>
+  <strong>Price:</strong>
+  <%= @etalase.price %>
+</p>
 
 <p>
   <strong>Photo:</strong>
@@ -12,12 +17,7 @@
 
 <p>
   <strong>Description:</strong>
-  <%= @etalase.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @etalase.price %>
+  <%= raw @etalase.description %>
 </p>
 
 <%= link_to 'Edit', edit_etalase_path(@etalase) %> |

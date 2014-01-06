@@ -3,7 +3,7 @@ IndonesianHandmade::Application.routes.draw do
   get "show_up/profile"
 
   get "show_up/mytutorial", to: 'show_up#mytutorials', as: 'show_up_tutorials'
-  
+  get "show_up/myetalase", to: 'show_up#myetalases', as: 'show_up_etalases'
   get "home/index"
 
   resources :etalases

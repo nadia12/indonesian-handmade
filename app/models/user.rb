@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
 
   validates :name, :address, :phone, presence: true
   has_many :tutorials
+  has_many :etalases
 
 end
