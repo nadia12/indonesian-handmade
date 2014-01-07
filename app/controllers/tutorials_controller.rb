@@ -1,5 +1,6 @@
 class TutorialsController < ApplicationController
   before_action :set_tutorial, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :create, :update, :destroy]
   def index
     @tutorials = Tutorial.all
   end
@@ -17,7 +18,6 @@ class TutorialsController < ApplicationController
 
   def create
     @tutorial = current_user.tutorials.new(tutorial_params)
-    # @tutorial = Tutorial.new(tutorial_params)
 
     respond_to do |format|
       if @tutorial.save
@@ -55,6 +55,6 @@ class TutorialsController < ApplicationController
     end
 
     def tutorial_params
-      params.require(:tutorial).permit(:content, :title, :picture)
+      params.require(:tutorial).permit(:content, :title, :picture, :category_id)
     end
 end

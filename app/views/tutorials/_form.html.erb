@@ -20,10 +20,13 @@
     <%= f.label :sample_picture %>
     <%= f.file_field :picture %>
   </div>
-
+  <div>
+    <%= f.label :category %>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+  </div>
   <div>
     <%= f.label :content %><br>
-    <%= f.cktext_area :content, :cols => 4 , :ckeditor => {:toolbar => "mini"} %>
+    <%= f.cktext_area :content, :cols => 8 , :ckeditor => {:toolbar => "mini"} %>
   </div>
 
   <div class="actions">

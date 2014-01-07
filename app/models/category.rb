@@ -1,4 +1,4 @@
 class Category < ActiveRecord::Base
-  belongs_to :etalase
-  belongs_to :tutorial
+  has_many :etalases
+  has_many :tutorials
 end

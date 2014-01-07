@@ -4,7 +4,10 @@
   <strong>Title:</strong>
   <%= @tutorial.title %>
 </p>
-  
+<p>
+  <strong>Category:</strong>
+  <%= @tutorial.category.name %>
+</p>  
 <p>
   <strong>Sample Picture:</strong>
   <%= image_tag @tutorial.picture %>
@@ -40,15 +43,15 @@
     <%= f.submit %>
   </div>
 <% end %>
-
+<div class="large-6 columns">
 <% @comments.includes(:user).each do |comment|  %>
-  <ul>
-
-    <li><%= image_tag comment.user.avatar_url(:small_thumb), class: "th radius" %> 
-        <%= comment.user.name %></li>
-    <li><%= comment.content %></li>
-  </ul>
+<div class="row">
+  <div class="large-2 columns small-3"><%= image_tag comment.user.avatar_url(:thumb), class: "th radius" %> </div>
+  <div class="large-10 columns">
+    <p><strong><%= comment.user.name %> said:</strong> <%= comment.content %></p>
+  </div>
+</div>
 <% end %>
-
+</div>
 <%= link_to 'Edit', edit_tutorial_path(@tutorial) %> |
 <%= link_to 'Back', tutorials_path %>

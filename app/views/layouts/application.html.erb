@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "IndonesianHandmade" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -12,42 +12,28 @@
   </head>
 
   <body>
-    <div class="row">
-      <div class="large-12 columns"> 
-      <!-- Navigation -->
       <nav class="top-bar" data-topbar>
         <ul class="title-area">
           <!-- Title Area -->
           <li class="name">
             <h1>
-              <li><%= link_to 'IndonesianHanmade', root_path %></li>
+              <li><%= link_to "#{image_tag('home.png')} IndonesianHanmade".html_safe, root_path %></li>
             </h1>
           </li>
           <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
         </ul>
         <section class="top-bar-section">
           <ul class="left">
-            <li class="has-dropdown not-click"><a href="#">Tutorial</a>
-              <ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
-                <li><label>Level One</label></li>
-                <li><%= link_to 'Tutorial', tutorials_path %></li>
-                <li><a href="#">Sub-item 5</a></li>
-              </ul>
-            </li>
-            <li class="has-dropdown not-click"><a href="#">Etalase</a>
-              <ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
-                <li><label>Level One</label></li>
-                <li><%= link_to 'Etalase', etalases_path %></li>
-                <li><a href="#">Sub-item 5</a></li>
-              </ul>
-            </li>
+            <li><%= link_to "#{image_tag('wink.png')} Tutorial".html_safe, tutorials_path %></li>
+            <li><%= link_to "#{image_tag('grin.png')} Etalase".html_safe, etalases_path %></li>
             <li><%= link_to 'Category', categories_path %></li>
           </ul>
           <ul class="right">
           <% if user_signed_in? %>
             <!-- Logged in as <strong><%= current_user.email %></strong>. -->
-            <li><%= link_to 'Profile', show_up_profile_path, class: 'navbar-link' %></li>
-            <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link' %></li>
+
+            <li><%= link_to "#{image_tag(current_user.avatar_url(:fit_thumb))} #{current_user.name} Profile".html_safe, show_up_profile_path, class: 'navbar-link' %></li>
+            <li><%= link_to "#{image_tag('switch.png')} Logout".html_safe, destroy_user_session_path, method: :delete, class: 'navbar-link' %></li>
           <% else %>
             <li><%= link_to "Sign up", new_user_registration_path, class: 'navbar-link'  %></li>
             <li><%= link_to "Login", new_user_session_path, class: 'navbar-link' %></li>
@@ -55,8 +41,7 @@
           </ul>
         </section>
       </nav>
-    </div>
-  </div>
+
   <div class="row">
     <div class="large-12 columns">
       <p class="alert"><%= alert %></p>

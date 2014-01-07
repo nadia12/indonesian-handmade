@@ -6,9 +6,6 @@
       <th>Title</th>
       <th>Photo</th>
       <th>Price</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -18,8 +15,12 @@
         <td><%= link_to etalase.title, etalase %></td>
         <td><%= etalase.photo %></td>
         <td><%= etalase.price %></td>
-        <td><%= link_to 'Edit', edit_etalase_path(etalase) %></td>
-        <td><%= link_to 'Destroy', etalase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if can? :update, etalase %>
+          <td><%= link_to 'Edit', edit_etalase_path(etalase) %></td>
+        <% end %>
+        <% if can? :destroy, etalase %>
+          <td><%= link_to 'Destroy', etalase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

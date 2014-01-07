@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require ckeditor/override
 //= require ckeditor/init
+//= require jquery.flexslider-min
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

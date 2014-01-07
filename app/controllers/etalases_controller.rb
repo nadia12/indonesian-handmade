@@ -1,6 +1,6 @@
 class EtalasesController < ApplicationController
   before_action :set_etalase, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!, only: [:new, :create, :update, :destroy]
   def index
     @etalases = Etalase.all
   end
@@ -57,6 +57,6 @@ class EtalasesController < ApplicationController
     end
 
       def etalase_params
-      params.require(:etalase).permit(:title, :picture, :description, :price)
+      params.require(:etalase).permit(:title, :picture, :description, :price, :category_id)
     end
 end

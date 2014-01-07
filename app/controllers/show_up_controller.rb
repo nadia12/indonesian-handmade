@@ -13,4 +13,9 @@ class ShowUpController < ApplicationController
     @myetalases = current_user.etalases
   end
 
+  def mycomments
+    @myelatasecomments = current_user.comments.where commentable_type: 'Etalase'
+    @mytutorialcomments = current_user.comments.where commentable_type: 'Tutorial'
+  end
+
 end

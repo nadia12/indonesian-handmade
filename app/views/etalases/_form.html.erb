@@ -16,6 +16,11 @@
     <%= f.text_field :title %>
   </div>
 
+  <div>
+    <%= f.label :category %>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+  </div>
+  
    <div class="field">
     <%= f.label :price %><br>
     <%= f.text_field :price %>
