@@ -57,6 +57,6 @@ class EtalasesController < ApplicationController
     end
 
       def etalase_params
-      params.require(:etalase).permit(:title, :photo, :description, :price)
+      params.require(:etalase).permit(:title, :picture, :description, :price)
     end
 end
