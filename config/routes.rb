@@ -9,7 +9,12 @@ IndonesianHandmade::Application.routes.draw do
 
   resources :etalases
   resources :categories
-  resources :tutorials
+
+  resources :tutorials do
+    collection do
+      get 'select/:category_id', to: 'tutorials#select', as: 'select'
+    end
+  end
   resources :comments
 
   devise_for :users, :controllers => { :registrations => "registrations" }

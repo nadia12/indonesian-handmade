@@ -1,5 +1,6 @@
 class TutorialsController < ApplicationController
   before_action :set_tutorial, only: [:show, :edit, :update, :destroy]
+  before_action :select_category, only: [:select]
   before_filter :authenticate_user!, only: [:new, :create, :update, :destroy]
   def index
     @tutorials = Tutorial.all
@@ -40,12 +41,16 @@ class TutorialsController < ApplicationController
       end
     end
   end
+
   def destroy
     @tutorial.destroy
     respond_to do |format|
       format.html { redirect_to tutorials_url }
       format.json { head :no_content }
     end
+  end
+
+  def select
   end
 
   private
@@ -56,5 +61,9 @@ class TutorialsController < ApplicationController
 
     def tutorial_params
       params.require(:tutorial).permit(:content, :title, :picture, :category_id)
+    end
+
+    def select_category
+      @tutorial = Tutorial.where category_id: params[:category_id]
     end
 end

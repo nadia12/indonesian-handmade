@@ -16,9 +16,9 @@
         <div class="panel">Choose Your Category
         <ul class="side-nav">
         <% categories = Category.all %>
-          <li><%= link_to 'All Category' , new_tutorial_path, class: 'callout radius' %></li>
+          <li><%= link_to 'All Category' , tutorials_path, class: 'callout radius' %></li>
           <% categories.each do |category| %> 
-          <li><%= link_to category.name , new_tutorial_path, class: 'callout radius' %></li>
+          <li><%= link_to category.name , select_tutorials_path(category.id), class: 'callout radius' %></li>
         <% end %>
       </ul>
       </div>
