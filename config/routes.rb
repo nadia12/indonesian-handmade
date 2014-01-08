@@ -10,6 +10,8 @@ IndonesianHandmade::Application.routes.draw do
   resources :etalases do
     collection do
       get 'select/:category_id', to: 'etalases#select', as: 'select'
+      post 'search'
+      get 'search', to: 'etalase#newsearch'
     end
   end
   
@@ -18,6 +20,8 @@ IndonesianHandmade::Application.routes.draw do
   resources :tutorials do
     collection do
       get 'select/:category_id', to: 'tutorials#select', as: 'select'
+      post 'search'
+      get 'search', to: 'tutorials#newsearch'
     end
   end
   resources :comments

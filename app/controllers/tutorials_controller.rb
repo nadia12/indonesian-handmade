@@ -56,6 +56,16 @@ class TutorialsController < ApplicationController
     
   end
 
+  def search
+    @search = params[:search]
+    @tutorials = Tutorial.where("content LIKE ? ", "%#{params[:search]}%")
+  end
+
+  def newsearch
+    @tutorials = []
+    render 'search'  
+  end
+
   private
     def set_tutorial
       @tutorial = Tutorial.find(params[:id])
@@ -69,4 +79,5 @@ class TutorialsController < ApplicationController
     def select_category
       @tutorial = Tutorial.where(category_id: params[:category_id]).order(:created_at).page params[:page]
     end
+
 end
