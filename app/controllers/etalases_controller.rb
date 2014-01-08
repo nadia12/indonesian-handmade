@@ -56,6 +56,16 @@ class EtalasesController < ApplicationController
     
   end
 
+  def search
+    @etalases = Etalase.where("description LIKE ? ", "%#{params[:search]}%")
+  end
+
+  def newsearch
+    @search = params[:search]
+    @tutorials = []
+    render 'search'  
+  end
+
   private
       def set_etalase
       @etalase = Etalase.find(params[:id])

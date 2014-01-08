@@ -1,14 +1,30 @@
 <h1>My Comment on Etalase</h1>
+<table>
+<thead>
+  <th> My Comment</th>
+  <th> at </th>
+</thead>
 <% @myelatasecomments.each do |comment| %> 
-  <li><%= comment.content %></li>
-  <li><%= comment.created_at %></li>
-  <li><%= link_to "go to page", etalase_path(comment.commentable_id) %></li>
+  <tr>
+    <td><%= comment.content %></td>
+    <td><%= comment.created_at %></td>
+    <td><%= link_to "go to page", etalase_path(comment.commentable_id) %></td>
+  </tr>
 <% end  %>
+</table>
 
 <h1>My Comment on Tutorial</h1>
-<% @mytutorialcomments.each do |comment| %> 
-  <li><%= comment.content %></li>
-  <li>title <%= comment.commentable.title %> by <%= comment.commentable.user.name %></li>
-  <li><%= comment.created_at %></li>
-  <li><%= link_to "go to page", tutorial_path(comment.commentable_id) %></li>
-<% end  %>
+<table>
+  <thead>
+    <th>My Comment</th>
+    <th> at </th>
+  </thead>
+  <% @mytutorialcomments.each do |comment| %> 
+    <tr>
+      <td><%= comment.content %></td>
+      <td>title <%= comment.commentable.title %> by <%= comment.commentable.user.name %></td>
+      <td><%= comment.created_at %></td>
+      <td><%= link_to "go to page", tutorial_path(comment.commentable_id) %></td>
+    </tr>
+  <% end  %>
+</table>

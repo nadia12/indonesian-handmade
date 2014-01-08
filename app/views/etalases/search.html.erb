@@ -28,7 +28,7 @@
     </div>
   </div>
 
-  <%= form_tag 'etalases/search' %>
+  <%= form_tag search_etalases_path %>
   <div class="row collapse right">
     <div class="medium-9 columns">
       <%= search_field_tag 'search' %>
@@ -37,19 +37,23 @@
       <%= button_tag "Search",  class: 'button postfix' %>
     </div>
   </div>
-  
   <div class="large-8 columns">
-    <div class="row">
-    <% @etalases.each do |etalases| %>
-      <div class="large-4 small-6 columns">
-        <%= image_tag etalases.picture %>
-        <div class="panel">
-          <h5><%= link_to etalases.title, etalases %></h5>
-          <h5><%= etalases.price %></h5>
-        </div>
-      </div>
+    <%= 'Data Belum Ada atau Tidak Ditemukan' if @etalases.empty?  %>
+    <% number = 0 %>
+    <% if !@etalases.empty? %>
+    <h3><%= @etalases.size %> Hal Ditemukan untuk <%= @search%></h3>
+    <table>
+    <tr>
+      <td>#</td>
+      <td>title</td>
+    </tr>
+      <% @etalases.each do |etalase| %>
+      <tr>
+        <td><%= number+=1 %></td>
+        <td><%= link_to etalase.title, etalase_path(etalase.id) %></td>
+      </tr>
+      <% end %>
+      </table>
     <% end %>
-    </div>
-  <%= paginate @etalases %>
   </div>
 </div>
