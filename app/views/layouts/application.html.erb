@@ -26,7 +26,7 @@
           <ul class="left">
             <li class="<%= 'active' if params[:controller] == 'tutorials' %>"><%= link_to "#{image_tag('wink.png')} Tutorial".html_safe, tutorials_path %></li>
             <li class="<%= 'active' if params[:controller] == 'etalases' %>"><%= link_to "#{image_tag('grin.png')} Etalase".html_safe, etalases_path %></li>
-            <li class="<%= 'active' if params[:controller] == 'categories' %>"><%= link_to 'Category', categories_path %></li>
+           <li class="<%='active' if params[:controller] == 'categories' %>"><%= link_to 'Category', categories_path %></li>
           </ul>
           <ul class="right">
           
