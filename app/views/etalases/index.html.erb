@@ -1,31 +1,45 @@
-<h1>Listing etalases</h1>
+<% if notice %>
+<div data-alert="" class="alert-box success radius">
+  <%= notice %>
+  <a href="#" class="close">×</a>
+</div>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Photo</th>
-      <th>Price</th>
-    </tr>
-  </thead>
+<h1>Our Etalases</h1>
+<div class="row">
+      <!-- Side Bar -->
+  <div class="large-4 small-12 columns">
+    <%= image_tag 'etalases.jpg' %>
 
-  <tbody>
-    <% @etalases.each do |etalase| %>
-      <tr>
-        <td><%= link_to etalase.title, etalase %></td>
-        <td><%= etalase.photo %></td>
-        <td><%= etalase.price %></td>
-        <% if can? :update, etalase %>
-          <td><%= link_to 'Edit', edit_etalase_path(etalase) %></td>
-        <% end %>
-        <% if can? :destroy, etalase %>
-          <td><%= link_to 'Destroy', etalase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
+    <div class="hide-for-small panel">
+      <h3>Etalase</h3>
+      <h5 class="subheader">You can share your idea to create some handycraft by your own. Explore your imagination and your idea. Please Share To Us</h5>
+      <%= link_to 'Create New Etalase' , new_etalase_path, class: 'button callout radius' %><br \>
+    </div>
+
+    <div class="panel">Choose Your Category
+      <ul class="side-nav">
+      <% categories = Category.all %>
+        <li class="<%= 'active' if params[:category_id].nil? %> "><%= link_to 'All Category' , etalases_path, class: 'callout radius' %></li>
+        <% categories.each do |category| %> 
+        <li class="<%= 'active' if params[:category_id].to_i == category.id %> "><%= link_to category.name , select_etalases_path(category.id) %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="large-8 columns">
+    <div class="row">
+    <% @etalases.each do |etalases| %>
+      <div class="large-4 small-6 columns">
+        <%= image_tag etalases.picture %>
+        <div class="panel">
+          <h5><%= link_to etalases.title, etalases %></h5>
+          <h5><%= etalases.price %></h5>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Etalase', new_etalase_path %>
+    </div>
+  <%= paginate @etalases %>
+  </div>
+</div>

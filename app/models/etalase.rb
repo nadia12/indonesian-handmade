@@ -7,6 +7,7 @@ class Etalase < ActiveRecord::Base
   has_many :comments, as: :commentable
   belongs_to :user
   belongs_to :category
+  # paginates_per 12
   # has_many :pictures, as: :imageable
   # accepts_nested_attributes_for :pictures, allow_destroy: true
   

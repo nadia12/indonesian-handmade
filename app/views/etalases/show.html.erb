@@ -1,34 +1,30 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+<div data-alert="" class="alert-box success radius">
+  <%= notice %>
+  <a href="#" class="close">×</a>
+</div>
+<% end %>
 
 <p>
-  <strong>Title:</strong>
-  <%= @etalase.title %>
+  <h2 class="panel callout radius"><%= @etalase.title %></h2>
 </p>
-
+<p>
+  <%= image_tag @etalase.picture, class: 'th center' %>
+</p>
 <p>
   <strong>Category:</strong>
   <%= @etalase.category.name %>
-</p>  
-
-<p>
-  <strong>Price:</strong>
-  <%= @etalase.price %>
 </p>
-
-<p>
-  <strong>Sample Picture:</strong>
-  <%= image_tag @etalase.picture %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= raw @etalase.description %>
-</p>
-
+<div>
+  <p>
+    <strong>etalase:</strong> <br>
+    <%= raw @etalase.description %>
+  </p>
+</div>
 <%= form_for(@comment) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this tutorial from being saved:</h2>
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this etalase from being saved:</h2>
 
       <ul>
       <% @comment.errors.full_messages.each do |msg| %>
@@ -50,10 +46,15 @@
     <%= f.submit %>
   </div>
 <% end %>
-
+<div class="large-6 columns">
 <% @comments.includes(:user).each do |comment|  %>
-  <ul>
-    <li><%= image_tag comment.user.avatar_url(:small_thumb), class: "th radius" %></li>
-    <li><%= comment.content %></li>
-  </ul>
+<div class="row">
+  <div class="large-2 columns small-3"><%= image_tag comment.user.avatar_url(:thumb), class: "th radius" %> </div>
+  <div class="large-10 columns">
+    <p><strong><%= comment.user.name %> said:</strong> <%= comment.content %></p>
+  </div>
+</div>
 <% end %>
+</div>
+<%= link_to 'Edit', edit_etalase_path(@etalase) %> |
+<%= link_to 'Back', etalases_path %>

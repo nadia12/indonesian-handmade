@@ -2,8 +2,9 @@ class TutorialsController < ApplicationController
   before_action :set_tutorial, only: [:show, :edit, :update, :destroy]
   before_action :select_category, only: [:select]
   before_filter :authenticate_user!, only: [:new, :create, :update, :destroy]
+
   def index
-    @tutorials = Tutorial.all
+    @tutorials = Tutorial.order(:created_at).page params[:page]
   end
 
   def show
@@ -30,6 +31,7 @@ class TutorialsController < ApplicationController
       end
     end
   end
+  
   def update
     respond_to do |format|
       if @tutorial.update(tutorial_params)
@@ -51,6 +53,7 @@ class TutorialsController < ApplicationController
   end
 
   def select
+    
   end
 
   private
@@ -64,6 +67,6 @@ class TutorialsController < ApplicationController
     end
 
     def select_category
-      @tutorial = Tutorial.where category_id: params[:category_id]
+      @tutorial = Tutorial.where(category_id: params[:category_id]).order(:created_at).page params[:page]
     end
 end

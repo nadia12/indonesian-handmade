@@ -25,7 +25,7 @@
     <%= f.label :price %><br>
     <%= f.text_field :price %>
   </div>
-
+<%= image_tag(@etalase.picture_url(:thumb_product)) if @etalase.picture? %>
   <div class="field">
     <%= f.label :sample_picture %><br>
     <%= f.file_field :picture %>
@@ -40,3 +40,8 @@
     <%= f.submit %>
   </div>
 <% end %>
+<script type="text/javascript">
+  $("#price").blur(function(){
+     $(this).formatNumber({format:"#,###.00", locale:"us"});
+  });
+</script>

@@ -15,6 +15,6 @@
  *= require_tree .
  */
 
-.top-bar-section li a:not(.button) {
+/*.top-bar-section li a:not(.button) {  
   line-height: 63px !important;
-}
+}*/

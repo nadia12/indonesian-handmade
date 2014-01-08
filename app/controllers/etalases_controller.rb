@@ -1,8 +1,10 @@
 class EtalasesController < ApplicationController
   before_action :set_etalase, only: [:show, :edit, :update, :destroy]
+  before_action :select_category, only: [:select]
   before_filter :authenticate_user!, only: [:new, :create, :update, :destroy]
+
   def index
-    @etalases = Etalase.all
+    @etalases = Etalase.order(:created_at).page params[:page]
   end
 
   def show
@@ -50,6 +52,10 @@ class EtalasesController < ApplicationController
     end
   end
 
+  def select
+    
+  end
+
   private
       def set_etalase
       @etalase = Etalase.find(params[:id])
@@ -58,5 +64,9 @@ class EtalasesController < ApplicationController
 
       def etalase_params
       params.require(:etalase).permit(:title, :picture, :description, :price, :category_id)
+    end
+
+    def select_category
+      @etalase = Etalase.where(category_id: params[:category_id]).order(:created_at).page params[:page]
     end
 end

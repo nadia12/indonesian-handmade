@@ -7,7 +7,12 @@ IndonesianHandmade::Application.routes.draw do
   get "show_up/mycomment", to: 'show_up#mycomments', as: 'show_up_comments'
   get "home/index"
 
-  resources :etalases
+  resources :etalases do
+    collection do
+      get 'select/:category_id', to: 'etalases#select', as: 'select'
+    end
+  end
+  
   resources :categories
 
   resources :tutorials do

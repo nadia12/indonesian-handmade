@@ -1,5 +1,5 @@
 class Tutorial < ActiveRecord::Base
-  
+  paginates_per 6
   belongs_to :category
   validates :title, :content, :picture, presence: true
   validates :title, uniqueness: true

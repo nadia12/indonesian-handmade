@@ -15,7 +15,7 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
-
+  <%= image_tag(@tutorial.picture_url(:thumb_product)) if @tutorial.picture? %>
   <div>
     <%= f.label :sample_picture %>
     <%= f.file_field :picture %>

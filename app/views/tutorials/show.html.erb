@@ -1,23 +1,26 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+<div data-alert="" class="alert-box success radius">
+  <%= notice %>
+  <a href="#" class="close">×</a>
+</div>
+<% end %>
 
 <p>
-  <strong>Title:</strong>
-  <%= @tutorial.title %>
+  <h2 class="panel callout radius"><%= @tutorial.title %></h2>
+</p>
+<p>
+  <%= image_tag @tutorial.picture, class: 'th center' %>
 </p>
 <p>
   <strong>Category:</strong>
   <%= @tutorial.category.name %>
-</p>  
-<p>
-  <strong>Sample Picture:</strong>
-  <%= image_tag @tutorial.picture %>
 </p>
-
-<p>
-  <strong>Content:</strong> <br>
-  <%= raw @tutorial.content %>
-</p>
-
+<div>
+  <p>
+    <strong>Tutorial:</strong> <br>
+    <%= raw @tutorial.content %>
+  </p>
+</div>
 <%= form_for(@comment) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
