@@ -1,0 +1,7 @@
+<ul class="vcard">
+  <li><%= image_tag @user.avatar_url(:thumb), class: "th radius" %></li>
+  <li class="fn"><%= @user.name %></li>
+  <li class="email"><%= @user.email %></li>
+  <li><%= @user.phone %></li>
+  <li class="street-address"><%= @user.address %></li>
+</ul>

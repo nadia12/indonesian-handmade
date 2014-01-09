@@ -1,0 +1,19 @@
+<table>
+<thead>
+  <tr>
+    <th>#</th>
+    <th>Title</th>
+  </tr>
+</thead>
+<tbody>
+  <% number = 0 %>
+  <% @tutorials.each do |tutorial| %> 
+  <tr>
+    <td><%= number+=1 %></td>
+    <td><%= link_to tutorial.title, tutorial %></td>
+    <td><%= link_to 'Edit Tutorial', edit_tutorial_path(tutorial) %></td>
+    <td><%= link_to 'Destroy', tutorial, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <% end  %>
+</tbody>
+</table>

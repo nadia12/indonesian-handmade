@@ -1,0 +1,34 @@
+<% if @elatasecomments %>
+  <h1> Comment on Etalase</h1>
+  <table>
+  <thead>
+    <th>  Comment</th>
+    <th> at </th>
+  </thead>
+  <% @elatasecomments.each do |comment| %> 
+    <tr>
+      <td><%= comment.content %></td>
+      <td><%= comment.created_at %></td>
+      <td><%= link_to "go to page", etalase_path(comment.commentable_id) %></td>
+    </tr>
+  <% end  %>
+  </table>
+<% end %>
+
+<% if @tutorialcomments %>
+  <h1> Comment on Tutorial</h1>
+  <table>
+    <thead>
+      <th> Comment</th>
+      <th> at </th>
+    </thead>
+    <% @tutorialcomments.each do |comment| %> 
+      <tr>
+        <td><%= comment.content %></td>
+        <td>title <%= comment.commentable.title %> by <%= comment.commentable.user.name %></td>
+        <td><%= comment.created_at %></td>
+        <td><%= link_to "go to page", tutorial_path(comment.commentable_id) %></td>
+      </tr>
+    <% end  %>
+  </table>
+<% end %>

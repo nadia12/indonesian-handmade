@@ -14,9 +14,18 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
+//= require masonry/jquery.masonry
 //= require ckeditor/override
 //= require ckeditor/init
 //= require jquery.flexslider-min
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+$(function(){
+  $('#masonry-container').masonry({
+    itemSelector: '.box',
+    columnWidth: 100,
+    gutterWidth: 40
+  });
+
+});

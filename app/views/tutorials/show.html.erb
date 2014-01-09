@@ -9,11 +9,15 @@
   <h2 class="panel callout radius"><%= @tutorial.title %></h2>
 </p>
 <p>
-  <%= image_tag @tutorial.picture, class: 'th center' %>
+  <strong>By:</strong>
+  <%= link_to @tutorial.user.name, show_up_profile_path(@tutorial.user.id) %>
 </p>
 <p>
   <strong>Category:</strong>
   <%= @tutorial.category.name %>
+</p>
+<p>
+  <%= image_tag @tutorial.picture, class: 'th center' %>
 </p>
 <div>
   <p>

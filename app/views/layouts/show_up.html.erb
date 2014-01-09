@@ -32,7 +32,7 @@
           <ul class="right">
           <% if user_signed_in? %>
             <!-- Logged in as <strong><%= current_user.email %></strong>. -->
-            <li class="<%= 'active' if params[:controller] == 'show_up' %>"><%= link_to "#{image_tag(current_user.avatar_url(:fit_thumb))} #{current_user.name} Profile".html_safe, show_up_profile_path, class: 'navbar-link' %></li>
+            <li class="<%= 'active' if params[:controller] == 'show_up' %>"><%= link_to "#{image_tag(current_user.avatar_url(:fit_thumb))} #{current_user.name} Profile".html_safe, show_up_profile_path(current_user), class: 'navbar-link' %></li>
             <li><%= link_to "#{image_tag('confused.png')} Logout".html_safe, destroy_user_session_path, method: :delete, class: 'navbar-link' %></li>
           <% else %>
             <li><%= link_to "#{image_tag('contract.png')} Sign up".html_safe, new_user_registration_path, class: 'navbar-link'  %></li>
@@ -51,9 +51,9 @@
             <li class="<%= 'active' if params[:controller] == 'registrations' %>"><%= link_to 'Edit Profile and avatar', edit_user_registration_path %></li>
             <li class="divider"></li>
             <li class="heading">On My Own</li>
-            <li class="<%= 'active' if params[:action] == 'mytutorials'%>"><%= link_to 'My Tutorials', show_up_tutorials_path %></li>
-            <li class="<%= 'active' if params[:action] == 'myetalases'%>"><%= link_to 'My Etalase', show_up_etalases_path %></li>
-            <li class="<%= 'active' if params[:action] == 'mycomments'%>"><%= link_to 'My Comment', show_up_comments_path %></li>
+            <li class="<%= 'active' if params[:action] == 'tutorials'%>"><%= link_to 'Tutorials', show_up_tutorials_path(params[:id] || current_user.id) %></li>
+            <li class="<%= 'active' if params[:action] == 'etalases'%>"><%= link_to 'Etalase', show_up_etalases_path(params[:id] || current_user.id) %></li>
+            <li class="<%= 'active' if params[:action] == 'comments'%>"><%= link_to 'Comment', show_up_comments_path(params[:id] || current_user.id) %></li>
             <li class="divider"></li>
           </ul>
         </nav>

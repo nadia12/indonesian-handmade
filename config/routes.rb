@@ -1,10 +1,10 @@
 IndonesianHandmade::Application.routes.draw do
   root :to => "home#index"
-  get "show_up/profile"
 
-  get "show_up/mytutorial", to: 'show_up#mytutorials', as: 'show_up_tutorials'
-  get "show_up/myetalase", to: 'show_up#myetalases', as: 'show_up_etalases'
-  get "show_up/mycomment", to: 'show_up#mycomments', as: 'show_up_comments'
+  get "show_up/:id/tutorial", to: 'show_up#tutorials', as: 'show_up_tutorials'
+  get "show_up/:id/etalase", to: 'show_up#etalases', as: 'show_up_etalases'
+  get "show_up/:id/comment", to: 'show_up#comments', as: 'show_up_comments'
+  get "show_up/:id", to: 'show_up#profile', as: 'show_up_profile'
   get "home/index"
 
   resources :etalases do

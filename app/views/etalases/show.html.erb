@@ -9,6 +9,10 @@
   <h2 class="panel callout radius"><%= @etalase.title %></h2>
 </p>
 <p>
+  <strong>By:</strong>
+  <%= link_to @etalase.user.name, show_up_profile_path(@etalase.user.id) %>
+</p>
+<p>
   <%= image_tag @etalase.picture, class: 'th center' %>
 </p>
 <p>
