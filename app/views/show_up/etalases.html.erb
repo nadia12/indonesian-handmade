@@ -13,11 +13,20 @@
       <td><%= number+=1 %></td>
       <td><%= link_to etalase.title, etalase %></td>
       <td><%= link_to 'Edit etalase', edit_etalase_path(etalase) %></td>
-      <td><%= link_to 'Destroy', etalase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><a href="#" data-reveal-id="firstModal<%= etalase.id %>" class="radius button alert tiny">Delete</a></td>
+        <div id="firstModal<%= etalase.id %>" class="reveal-modal tiny" data-reveal="" style="display: none; opacity: 1; visibility: hidden;">
+          <h2>Caution</h2>
+          <p>Are you sure to delete?</p>
+          <p><%= link_to 'Yes', etalase, method: :delete, class: 'button tiny' %></p>
+          <a class="close-reveal-modal">×</a>
+        </div>
     </tr>
     <% end  %>
   </tbody>
 </table>
 <% else %>
-  You Have Nothing
+  <div data-alert="" class="alert-box">
+    There Is Nothin Here
+    <a href="#" class="close">×</a>
+  </div>
 <% end %>

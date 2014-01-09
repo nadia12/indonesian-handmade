@@ -14,7 +14,10 @@
   <% end  %>
   </table>
 <% else %>
-  You haven't any comment on any Etalase <br \>
+  <div data-alert="" class="alert-box">
+    There Is etalases Comment Here
+    <a href="#" class="close">×</a>
+  </div>
 <% end %>
 
 <% if @tutorialcomments != [] %>
@@ -34,5 +37,8 @@
     <% end  %>
   </table>
 <% else %>
-  You haven't any comment on any Tutorial
+  <div data-alert="" class="alert-box">
+    There Is Tutorial Comment Here
+    <a href="#" class="close">×</a>
+  </div>
 <% end %>

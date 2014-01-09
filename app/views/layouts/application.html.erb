@@ -29,9 +29,7 @@
             </li>
             <li class="<%= 'active' if params[:controller] == 'etalases' %>"><%= link_to "#{image_tag('grin.png')} Etalase".html_safe, etalases_path %>
             </li>
-            <li class="<%='active' if params[:controller] == 'categories' %>"><%= link_to 'Category', categories_path %>
-            </li>
-            <li class="has-dropdown not-click"><a href="#">Category</a>
+            <li class="has-dropdown not-click <%='active' if params[:controller] == 'categories' %>"><a href="#">Category</a>
               <ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
                 <li><label>Level One</label></li>
                 <% categories = Category.all %>
@@ -58,12 +56,18 @@
 
   <div class="row">
     <div class="large-12 columns">
-    <% if alert %>
-      <div data-alert="" class="alert-box warning round">
-        <%= alert %>
+      <% if alert %>
+        <div data-alert="" class="alert-box warning round">
+          <%= alert %>
+          <a href="#" class="close">×</a>
+        </div>
+      <% end %>
+      <% if notice %>
+        <div data-alert="" class="alert-box success radius">
+          <%= notice %>
         <a href="#" class="close">×</a>
       </div>
-    <% end %>
+      <% end %>
       <%= yield %>
       <%= javascript_include_tag "application" %>
     </div>

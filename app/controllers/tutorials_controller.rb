@@ -45,9 +45,10 @@ class TutorialsController < ApplicationController
   end
 
   def destroy
+    user_id = @tutorial.user_id
     @tutorial.destroy
     respond_to do |format|
-      format.html { redirect_to tutorials_url }
+      format.html { redirect_to show_up_tutorials_path user_id, notice: "Tutorial Has Been Destroy"  }
       format.json { head :no_content }
     end
   end
@@ -68,7 +69,7 @@ class TutorialsController < ApplicationController
 
   private
     def set_tutorial
-      @tutorial = Tutorial.find(params[:id])
+      @tutorial = Tutorial.find(params[:id] || current_user)
       @comments = @tutorial.comments
     end
 

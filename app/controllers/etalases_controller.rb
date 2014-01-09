@@ -45,9 +45,10 @@ class EtalasesController < ApplicationController
   end
 
   def destroy
+    user_id = @etalase.user_id
     @etalase.destroy
     respond_to do |format|
-      format.html { redirect_to etalases_url }
+      format.html { redirect_to show_up_etalases_path(user_id), notice: "Etalase Has Been Destroy" }
       format.json { head :no_content }
     end
   end
