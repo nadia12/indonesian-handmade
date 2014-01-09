@@ -7,18 +7,22 @@
 
 <p>
   <h2 class="panel callout radius"><%= @etalase.title %></h2>
+  <p>It's a little ostentatious, but useful for important content.</p>
 </p>
+<h6>
+  <strong>Category:</strong>
+  <%= @etalase.category.name %>
+</h6>
+  
 <p>
   <strong>By:</strong>
   <%= link_to @etalase.user.name, show_up_profile_path(@etalase.user.id) %>
 </p>
-<p>
+
+<p align = 'center'>
   <%= image_tag @etalase.picture, class: 'th center' %>
 </p>
-<p>
-  <strong>Category:</strong>
-  <%= @etalase.category.name %>
-</p>
+
 <div>
   <p>
     <strong>etalase:</strong> <br>
@@ -26,9 +30,7 @@
   </p>
 </div>
 
-<% if @etalase.user_id == current_user.id %>
 <%= link_to 'Edit', edit_etalase_path(@etalase) %> |
-<%end%>
 <%= link_to 'Back', etalases_path %>
 
 <br><br>

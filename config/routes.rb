@@ -35,6 +35,7 @@ IndonesianHandmade::Application.routes.draw do
     get "etalases", to:'etalases#index'
     get "members", to:'members#index'
     get "comments", to:'comments#index'
+    get "sign_up", to:'sign_up#index'
     resources :categories
   end
  

@@ -3,6 +3,7 @@
   <p>It's a little ostentatious, but useful for important content.</p>
 </div>
 
+<<<<<<< HEAD
   <div class="large-8 columns">
   <h3> Latest Product <h3>
     <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
@@ -16,9 +17,25 @@
               <h5><%=etalase.price %></h5>
               <h7><i>by:<%=etalase.user.name %></i></h7>
           </div>
+=======
+<h3> Latest Product <h3>
+
+  <div class="medium-9 columns">
+    <div class="row">
+    <% @etalases.each do |etalase| %>
+      <div class="large-4 small-6 columns">
+         <%=link_to image_tag(etalase.picture), etalase %>
+        <div class="panel">
+          <h5><b><%=etalase.title %></b></h5>
+          <h6><%=number_to_currency etalase.price ,  precision: 0 , unit: "Rp. ", seperator: "."%> </h6>
+          <h6><i>by: <%= link_to etalase.user.name, show_up_profile_path(etalase.user.id) %></i></h6>
+          
+
+>>>>>>> 690753f9ec1fa1d62a3a55cf31843837a41ea0d4
         </div>
       <% end %>
       </div>
+<<<<<<< HEAD
     <%= paginate @etalases %>
     </div>
   </div>
@@ -36,9 +53,34 @@
             <h5><b><%= tutorial.title %></b></h5>
             <h7><i>by:<%=tutorial.user.name %></i></h7>
           </div>
+=======
+    <% end %>
+    </div>  
+  <%= paginate @etalases %>
+<br>
+
+<h3> Latest Tutorial </h3>
+     <div class="row">
+    <% @tutorials.each do |tutorial| %>
+      <div class="large-4 small-6 columns">
+        <%=link_to image_tag(tutorial.picture), tutorial %>
+        <div class="panel">
+          <h5><b><%= tutorial.title %></b></h5>
+          <h6><i>by: <%= link_to tutorial.user.name, show_up_profile_path(tutorial.user.id) %></i><h6>
+>>>>>>> 690753f9ec1fa1d62a3a55cf31843837a41ea0d4
         </div>
       <% end %>
     </div>
+<<<<<<< HEAD
   </div>
   <%= paginate @tutorials %>
 </div>
+=======
+  <%= paginate @tutorials %>
+</div>
+
+
+
+
+
+>>>>>>> 690753f9ec1fa1d62a3a55cf31843837a41ea0d4
