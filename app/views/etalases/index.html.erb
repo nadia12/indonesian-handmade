@@ -14,7 +14,7 @@
     <div class="hide-for-small panel">
       <h3>Etalase</h3>
       <h5 class="subheader">You can share your amazing product and tell to anyone that you selling it. Get Amazing Stuff with us</h5>
-      <%= link_to 'Create New Etalase' , new_etalase_path, class: 'button callout radius' %><br \>
+      <%= link_to "#{image_tag 'new.png'} Create New Etalase".html_safe, new_etalase_path, class: 'button callout radius' %><br \>
     </div>
 
     <div class="panel">Choose Your Category
@@ -34,7 +34,7 @@
       <%= search_field_tag 'search' %>
     </div>
     <div class="small-3 columns">
-      <%= button_tag "Search",  class: 'button postfix' %>
+      <%= button_tag "#{image_tag 'search.png'}".html_safe,  class: 'button postfix' %>
     </div>
   </div>
   
@@ -56,7 +56,7 @@
       <%= paginate @etalases %>
     <% else %>
       <div data-alert="" class="alert-box">
-        There Is Nothin Here
+        <%= image_tag 'info.png' %> There Is Nothin Here
         <a href="#" class="close">×</a>
       </div>
     <% end %>

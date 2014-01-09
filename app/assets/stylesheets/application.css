@@ -35,3 +35,6 @@ body{
 background-image: url('background.jpg');
 }
 
+a:hover {
+  background-color: rgba(137, 255, 250, 0.59) !important;
+}

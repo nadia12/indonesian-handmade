@@ -25,11 +25,11 @@
         </ul>
         <section class="top-bar-section">
           <ul class="left">
-            <li class="<%= 'active' if params[:controller] == 'tutorials' %>"><%= link_to "#{image_tag('wink.png')} Tutorial".html_safe, tutorials_path %>
+            <li class="<%= 'active' if params[:controller] == 'tutorials' %>"><%= link_to "#{image_tag('tutorial.png')} Tutorial".html_safe, tutorials_path %>
             </li>
-            <li class="<%= 'active' if params[:controller] == 'etalases' %>"><%= link_to "#{image_tag('grin.png')} Etalase".html_safe, etalases_path %>
+            <li class="<%= 'active' if params[:controller] == 'etalases' %>"><%= link_to "#{image_tag('etalase.png')} Etalase".html_safe, etalases_path %>
             </li>
-            <li class="has-dropdown not-click <%='active' if params[:controller] == 'categories' %>"><a href="#">Category</a>
+            <li class="has-dropdown not-click <%='active' if params[:controller] == 'categories' %>"><%= link_to "#{image_tag('category.png')} Category".html_safe %>
               <ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
                 <li><label>Level One</label></li>
                 <% categories = Category.all %>
@@ -44,10 +44,10 @@
           
           <% if user_signed_in? %>
             <li><%= link_to "#{image_tag(current_user.avatar_url(:fit_thumb))} #{current_user.name} Profile".html_safe, show_up_profile_path(current_user), class: 'navbar-link' %></li>
-            <li><%= link_to "#{image_tag('confused.png')} Logout".html_safe, destroy_user_session_path, method: :delete, class: 'navbar-link' %></li>
+            <li><%= link_to "#{image_tag('logout.png')} Logout".html_safe, destroy_user_session_path, method: :delete, class: 'navbar-link' %></li>
           <% else %>
             <li><%= link_to "#{image_tag('contract.png')} Sign up".html_safe, new_user_registration_path, class: 'navbar-link'  %></li>
-            <li><%= link_to "#{image_tag('switch.png')} Login".html_safe, new_user_session_path, class: 'navbar-link' %></li>
+            <li><%= link_to "#{image_tag('login.png')} Login".html_safe, new_user_session_path, class: 'navbar-link' %></li>
           <% end %>
 
           </ul>
@@ -58,13 +58,13 @@
     <div class="large-12 columns">
       <% if alert %>
         <div data-alert="" class="alert-box warning round">
-          <%= alert %>
+          <%= image_tag('alert.png') %><%= alert %>
           <a href="#" class="close">×</a>
         </div>
       <% end %>
       <% if notice %>
         <div data-alert="" class="alert-box success radius">
-          <%= notice %>
+          <%= image_tag('info.png') %><%= notice %>
         <a href="#" class="close">×</a>
       </div>
       <% end %>
