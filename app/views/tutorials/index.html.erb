@@ -47,7 +47,7 @@
           <div class="panel">
             <h5><%= link_to tutorial.title, tutorial %></h5>
             by, <%= link_to tutorial.user.name, show_up_profile_path(tutorial.user.id) %><br \>
-            <h6><%= tutorial.created_at.to_s[0..15] %></h6>
+            <h8><%= tutorial.created_at.strftime("%b %d, %Y") %></h8>
           </div>
         </div>
       <% end %>

@@ -1,3 +1,23 @@
+<h1>All Admin</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Active Since</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admins.each do |admin| %>
+      <tr>
+        <td><%= admin.name%>
+        <td><%= admin.created_at.strftime("%b %d, %Y") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <h1>All Members</h1>
 
 <table>
@@ -17,5 +37,6 @@
     <% end %>
   </tbody>
 </table>
+
 
 <br>
