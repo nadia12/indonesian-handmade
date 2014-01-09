@@ -40,19 +40,25 @@
   
   <div class="large-8 columns">
     <div class="row">
-    <% @etalases.each do |etalase| %>
-      <div class="large-4 small-6 columns">
-        <%= image_tag etalase.picture %>
-        <div class="panel">
-          <h5><%= link_to etalase.title, etalase %></h5>
-           <h5><%=number_to_currency etalase.price ,  precision: 0 , unit: "Rp. ", seperator: "."%></h5>
-          by, <%= link_to etalase.user.name, show_up_profile_path(etalase.user.id) %> <br><h8><%= etalase.created_at.strftime("%b %d, %Y") %></h8>
-          <br> 
-          
+      <% if @etalases != [] %>
+        <% @etalases.each do |etalase| %>
+          <div class="large-4 small-6 columns">
+            <%= image_tag etalase.picture %>
+            <div class="panel">
+              <h5><%= link_to etalase.title, etalase %></h5>
+               <h5><%=number_to_currency etalase.price ,  precision: 0 , unit: "Rp. ", seperator: "."%></h5>
+              by, <%= link_to etalase.user.name, show_up_profile_path(etalase.user.id) %> <br><h8><%= etalase.created_at.strftime("%b %d, %Y") %></h8>
+              <br> 
+            </div>
+          </div>
+        <% end %>
         </div>
+      <%= paginate @etalases %>
+    <% else %>
+      <div data-alert="" class="alert-box">
+        There Is Nothin Here
+        <a href="#" class="close">×</a>
       </div>
     <% end %>
-    </div>
-  <%= paginate @etalases %>
   </div>
 </div>

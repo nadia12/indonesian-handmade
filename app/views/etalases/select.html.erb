@@ -22,17 +22,24 @@
 
   <div class="large-8 columns">
     <div class="row">
-    <% @etalase.each do |etalase| %>
-      <div class="large-4 small-6 columns">
-        <%= image_tag etalase.picture %>
-        <div class="panel">
-          <h5><%= link_to etalase.title, etalase %></h5>
-          by, <%= link_to etalases.user.name, show_up_profile_path(etalases.user.id) %><br \>
-          <h5><%= etalases.price %></h5>
-          <h6><%= etalases.created_at.to_s[0..15] %></h6>
+      <% if @etalase != [] %>
+        <% @etalase.each do |etalase| %>
+          <div class="large-4 small-6 columns">
+            <%= image_tag etalase.picture %>
+            <div class="panel">
+              <h5><%= link_to etalase.title, etalase %></h5>
+              by, <%= link_to etalases.user.name, show_up_profile_path(etalases.user.id) %><br \>
+              <h5><%= etalases.price %></h5>
+              <h6><%= etalases.created_at.to_s[0..15] %></h6>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div data-alert="" class="alert-box">
+          There Is Nothin Here
+          <a href="#" class="close">×</a>
         </div>
-      </div>
-    <% end %>
+      <% end %>
     </div>
     <%= paginate @etalase %>
   </div>

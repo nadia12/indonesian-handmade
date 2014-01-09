@@ -1,19 +1,23 @@
+<% if @etalases != [] %>
 <table>
-<thead>
-  <tr>
-    <th>#</th>
-    <th>Title</th>
-  </tr>
-</thead>
-<tbody>
-  <% number = 0 %>
-  <% @etalases.each do |etalase| %> 
-  <tr>
-    <td><%= number+=1 %></td>
-    <td><%= link_to etalase.title, etalase %></td>
-    <td><%= link_to 'Edit etalase', edit_etalase_path(etalase) %></td>
-    <td><%= link_to 'Destroy', etalase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-  <% end  %>
-</tbody>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% number = 0 %>
+    <% @etalases.each do |etalase| %> 
+    <tr>
+      <td><%= number+=1 %></td>
+      <td><%= link_to etalase.title, etalase %></td>
+      <td><%= link_to 'Edit etalase', edit_etalase_path(etalase) %></td>
+      <td><%= link_to 'Destroy', etalase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end  %>
+  </tbody>
 </table>
+<% else %>
+  You Have Nothing
+<% end %>

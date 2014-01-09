@@ -22,16 +22,23 @@
 
   <div class="large-8 columns">
     <div class="row">
-    <% @tutorial.each do |tutorial| %>
-      <div class="large-4 small-6 columns">
-        <%= image_tag tutorial.picture %>
-        <div class="panel">
-          <h5><%= link_to tutorial.title, tutorial %></h5>
-          by, <%= link_to tutorial.user.name, show_up_profile_path(tutorial.user.id) %><br \>
-          <h6><%= tutorial.created_at.to_s[0..15] %></h6>
+      <% if @tutorial != [] %>
+        <% @tutorial.each do |tutorial| %>
+          <div class="large-4 small-6 columns">
+            <%= image_tag tutorial.picture %>
+            <div class="panel">
+              <h5><%= link_to tutorial.title, tutorial %></h5>
+              by, <%= link_to tutorial.user.name, show_up_profile_path(tutorial.user.id) %><br \>
+              <h6><%= tutorial.created_at.to_s[0..15] %></h6>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div data-alert="" class="alert-box">
+          There Is Nothin Here
+          <a href="#" class="close">×</a>
         </div>
-      </div>
-    <% end %>
+      <% end %>
     </div>
     <%= paginate @tutorial %>
   </div>

@@ -14,7 +14,7 @@
     <div class="hide-for-small panel">
       <h3>Tutorial</h3>
       <h5 class="subheader">You can share your idea to create some handycraft by your own. Explore your imagination and your idea. Please Share To Us</h5>
-      <%= link_to 'Create New Tutorial' , new_tutorial_path, class: 'button callout radius' %><br \>
+      <%= link_to 'Create New Etalase' , new_tutorial_path, class: 'button callout radius' %><br \>
     </div>
 
     <div class="panel">Choose Your Category
@@ -40,6 +40,7 @@
 
   <div class="large-8 columns">
     <div class="row">
+      <% if @tutorials != [] %>
       <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
       <% @tutorials.each do |tutorial| %>
         <div class="large-4 small-6 columns box">
@@ -53,6 +54,12 @@
       <% end %>
       </div>
     <%= paginate @tutorials %>
+    <% else %>
+      <div data-alert="" class="alert-box">
+        There Is Nothin Here
+        <a href="#" class="close">×</a>
+      </div>
+    <% end %>
     </div>
   </div>
 </div>

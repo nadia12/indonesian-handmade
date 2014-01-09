@@ -38,9 +38,13 @@
     </div>
   </div>
   <div class="large-8 columns">
-    <%= 'Data Belum Ada atau Tidak Ditemukan' if @etalases.empty?  %>
+    <% if @etalases.empty?  %>
+      <div data-alert="" class="alert-box">
+        There Is No Data Found for <%= params[:search] %>
+        <a href="#" class="close">×</a>
+      </div>
     <% number = 0 %>
-    <% if !@etalases.empty? %>
+    <% else %>
     <h3><%= @etalases.size %> Hal Ditemukan untuk <%= @search%></h3>
     <table>
     <tr>

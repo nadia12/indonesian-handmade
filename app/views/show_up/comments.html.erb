@@ -1,4 +1,4 @@
-<% if @elatasecomments %>
+<% if @elatasecomments != []%>
   <h1> Comment on Etalase</h1>
   <table>
   <thead>
@@ -13,9 +13,11 @@
     </tr>
   <% end  %>
   </table>
+<% else %>
+  You haven't any comment on any Etalase <br \>
 <% end %>
 
-<% if @tutorialcomments %>
+<% if @tutorialcomments != [] %>
   <h1> Comment on Tutorial</h1>
   <table>
     <thead>
@@ -31,4 +33,6 @@
       </tr>
     <% end  %>
   </table>
+<% else %>
+  You haven't any comment on any Tutorial
 <% end %>

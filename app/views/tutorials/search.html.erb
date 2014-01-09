@@ -7,7 +7,6 @@
 
 <h1>Our Tutorials</h1>
 <div class="row">
-      <!-- Side Bar -->
   <div class="large-4 small-12 columns">
     <%= image_tag 'tutorial.jpg' %>
 
@@ -28,32 +27,36 @@
     </div>
   </div>
 <%= form_tag search_tutorials_path %>
-<div class="row collapse right">
-  <div class="medium-9 columns">
-    <%= search_field_tag 'search' %>
+  <div class="row collapse right">
+    <div class="medium-9 columns">
+      <%= search_field_tag 'search' %>
+    </div>
+    <div class="small-3 columns">
+      <%= button_tag "Search",  class: 'button postfix' %>
+    </div>
   </div>
-  <div class="small-3 columns">
-    <%= button_tag "Search",  class: 'button postfix' %>
-  </div>
-</div>
-<div class="large-8 columns">
-  <%= 'Data Belum Ada atau Tidak Ditemukan' if @tutorials.empty?  %>
-  <% number = 0 %>
-  <% if !@tutorials.empty? %>
-  <h3><%= @tutorials.size %> Hal Ditemukan untuk <%= @search%></h3>
-  <table>
-  <tr>
-    <td>#</td>
-    <td>title</td>
-  </tr>
-    <% @tutorials.each do |tutorial| %>
-    <tr>
-      <td><%= number+=1 %></td>
-      <td><%= link_to tutorial.title, tutorial_path(tutorial.id) %></td>
-    </tr>
+  <div class="large-8 columns">
+    <% if @tutorials.empty?  %>
+      <div data-alert="" class="alert-box">
+        There Is No Data Found for <%= params[:search] %>
+        <a href="#" class="close">×</a>
+      </div>
+    <% number = 0 %>
+    <% else %>
+      <h3><%= @tutorials.size %> Hal Ditemukan untuk <%= @search%></h3>
+      <table>
+      <tr>
+        <td>#</td>
+        <td>title</td>
+      </tr>
+        <% @tutorials.each do |tutorial| %>
+        <tr>
+          <td><%= number+=1 %></td>
+          <td><%= link_to tutorial.title, tutorial_path(tutorial.id) %></td>
+        </tr>
+        <% end %>
+      </table>
     <% end %>
-    </table>
-  <% end %>
   </div>
 </div>
   
