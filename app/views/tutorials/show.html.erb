@@ -8,15 +8,14 @@
 <p>
   <h2 class="panel callout radius"><%= @tutorial.title %></h2>
 </p>
-<<<<<<< HEAD
+
 <p>
   <strong>By:</strong>
   <%= link_to @tutorial.user.name, show_up_profile_path(@tutorial.user.id) %>
 </p>
 <p>
-=======
+
 <h6>
->>>>>>> 9d523ee9152407702cb0d3c0cee45b2c2037a868
   <strong>Category:</strong>
   <%= @tutorial.category.name %>
 </h6>
@@ -24,22 +23,14 @@
 <p align = 'center'>
   <%= image_tag @tutorial.picture, class: 'th center' %>
 </p>
-<<<<<<< HEAD
-<p>
-  <%= image_tag @tutorial.picture, class: 'th center' %>
-</p>
-=======
 
->>>>>>> 9d523ee9152407702cb0d3c0cee45b2c2037a868
 <div>
   <p>
     <%= raw @tutorial.content %>
   </p>
 </div>
 
-<% if @tutorial.user_id == current_user.id %>
 <%= link_to 'Edit Tutorial', edit_tutorial_path(@tutorial) %> |
-<%end%>  
 <%= link_to 'Back', tutorials_path %>
 <br><br>
 

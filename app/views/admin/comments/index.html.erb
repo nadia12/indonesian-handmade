@@ -1,0 +1,52 @@
+<h1>All Comments</h1>
+<br>
+
+<h3> Comments in Tutorial </h3>
+<table>
+  <thead>
+    <tr>
+      <th>Member Name</th>
+      <th>Commented on</th>
+      <th>Page</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tutorial_comments.each do |comment| %>
+      <tr>
+        <td><%= comment.user.name%></td>
+        <td><%= comment.created_at.strftime("%b %d, %Y") %></td>
+        <td><%= link_to "go to page", tutorial_path(comment.commentable_id) %></td>
+        <td><%= link_to 'Destroy', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+      </tr>
+    <% end %>
+  </tbody>
+</table><br>
+
+<h3> Comments in Tutorial </h3>
+<table>
+  <thead>
+    <tr>
+      <th>Member Name</th>
+      <th>Comment</th>
+      <th>Page</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @etalase_comments.each do |comment| %>
+      <tr>
+        <td><%= comment.user.name%></td>
+        <td><%= comment.created_at.strftime("%b %d, %Y") %></td>
+        <td><%= link_to "go to page", etalase_path(comment.commentable_id) %></td>
+        <td><%= link_to 'Destroy', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

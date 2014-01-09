@@ -1,0 +1,29 @@
+<h1>All Products</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Published at</th>
+      <th>Price</th>
+      <th>Writer</th>
+      <th>Category</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @etalases.each do |etalase| %>
+      <tr>
+        <td><%= link_to etalase.title, etalase %></td>
+        <td><%= etalase.created_at.strftime("%b %d, %Y") %></td>
+        <td><%= etalase.price%></td>
+        <td><%= etalase.user.name %></td>
+        <td><%= etalase.category.name %></td>
+        <td><%= link_to 'Destroy', etalase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
