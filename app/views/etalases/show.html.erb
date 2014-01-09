@@ -25,6 +25,14 @@
     <%= raw @etalase.description %>
   </p>
 </div>
+
+<% if @etalase.user_id == current_user.id %>
+<%= link_to 'Edit', edit_etalase_path(@etalase) %> |
+<%end%>
+<%= link_to 'Back', etalases_path %>
+
+<br><br>
+
 <%= form_for(@comment) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
@@ -50,15 +58,17 @@
     <%= f.submit %>
   </div>
 <% end %>
+
 <div class="large-6 columns">
 <% @comments.includes(:user).each do |comment|  %>
 <div class="row">
-  <div class="large-2 columns small-3"><%= image_tag comment.user.avatar_url(:thumb), class: "th radius" %> </div>
+  <div class="large-2 columns small-4"><%= image_tag comment.user.avatar_url(:thumb), class: "th radius" %> </div>
   <div class="large-10 columns">
-    <p><strong><%= comment.user.name %> said:</strong> <%= comment.content %></p>
+    <p><i><%= time_ago_in_words(comment.created_at - 1) %> ago</i>, <strong><%= comment.user.name %> said:</strong> <br>
+    <span class="tab"><%= comment.content %> </span></p>
   </div>
 </div>
+<br>
 <% end %>
 </div>
-<%= link_to 'Edit', edit_etalase_path(@etalase) %> |
-<%= link_to 'Back', etalases_path %>
+

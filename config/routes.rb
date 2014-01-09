@@ -6,6 +6,7 @@ IndonesianHandmade::Application.routes.draw do
   get "show_up/:id/comment", to: 'show_up#comments', as: 'show_up_comments'
   get "show_up/:id", to: 'show_up#profile', as: 'show_up_profile'
   get "home/index"
+  get "categories", to: 'categories#index'
 
   resources :etalases do
     collection do
@@ -15,8 +16,6 @@ IndonesianHandmade::Application.routes.draw do
     end
   end
   
-  resources :categories
-
   resources :tutorials do
     collection do
       get 'select/:category_id', to: 'tutorials#select', as: 'select'
@@ -27,6 +26,15 @@ IndonesianHandmade::Application.routes.draw do
   resources :comments
 
   devise_for :users, :controllers => { :registrations => "registrations" }
+
+  namespace :admin do 
+    root 'dashboard#index'
+    get "tutorials", to:'tutorials#index'
+    get "etalases", to:'etalases#index'
+    get "members", to:'members#index'
+    get "comments", to:'comments#index'
+    resources :categories
+  end
  
   mount Ckeditor::Engine => "/ckeditor"
 end

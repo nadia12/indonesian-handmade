@@ -4,8 +4,6 @@ class Tutorial < ActiveRecord::Base
   validates :title, :content, :picture, presence: true
   validates :title, uniqueness: true
   mount_uploader :picture, PictureUploader
-  has_many :comments, as: :commentable
+  has_many :comments, as: :commentable, dependent: :destroy
   belongs_to :user
-  # has_many :pictures, as: :imageable
-  # accepts_nested_attributes_for :imageable, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 end
