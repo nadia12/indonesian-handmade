@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= f.label :description %><br>
-     <%= f.cktext_area :description, width: 250, :cols => 40, :ckeditor => {:toolbar => "mini"} %>
+     <%= f.cktext_area :description, :cols => 10 , class: 'ckeditor', :ckeditor => {:toolbar => "mini"} %>
   </div>
   
   <div class="actions">

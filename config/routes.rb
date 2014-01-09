@@ -1,4 +1,5 @@
 IndonesianHandmade::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   root :to => "home#index"
 
   get "show_up/:id/tutorial", to: 'show_up#tutorials', as: 'show_up_tutorials'
@@ -7,6 +8,7 @@ IndonesianHandmade::Application.routes.draw do
   get "show_up/:id", to: 'show_up#profile', as: 'show_up_profile'
   get "home/index"
   get "categories", to: 'categories#index'
+  get "categories/show/:id", to: 'categories#show', as: 'categories_show'
 
   resources :etalases do
     collection do
@@ -36,5 +38,4 @@ IndonesianHandmade::Application.routes.draw do
     resources :categories
   end
  
-  mount Ckeditor::Engine => "/ckeditor"
 end
