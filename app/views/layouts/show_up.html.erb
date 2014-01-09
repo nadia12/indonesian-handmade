@@ -25,18 +25,18 @@
         </ul>
         <section class="top-bar-section">
           <ul class="left">
-            <li><%= link_to "#{image_tag('wink.png')} Tutorial".html_safe, tutorials_path %></li>
-            <li><%= link_to "#{image_tag('grin.png')} Etalase".html_safe, etalases_path %></li>
-            <li><%= link_to 'Category', categories_path %></li>
+            <li><%= link_to "#{image_tag('tutorial.png')} Tutorial".html_safe, tutorials_path %></li>
+            <li><%= link_to "#{image_tag('etalase.png')} Etalase".html_safe, etalases_path %></li>
+            <li><%= link_to "#{image_tag('category.png')} Category".html_safe, categories_path %></li>
           </ul>
           <ul class="right">
           <% if user_signed_in? %>
             <!-- Logged in as <strong><%= current_user.email %></strong>. -->
             <li class="<%= 'active' if params[:controller] == 'show_up' %>"><%= link_to "#{image_tag(current_user.avatar_url(:fit_thumb))} #{current_user.name} Profile".html_safe, show_up_profile_path(current_user), class: 'navbar-link' %></li>
-            <li><%= link_to "#{image_tag('confused.png')} Logout".html_safe, destroy_user_session_path, method: :delete, class: 'navbar-link' %></li>
+            <li><%= link_to "#{image_tag('logout.png')} Logout".html_safe, destroy_user_session_path, method: :delete, class: 'navbar-link' %></li>
           <% else %>
             <li><%= link_to "#{image_tag('contract.png')} Sign up".html_safe, new_user_registration_path, class: 'navbar-link'  %></li>
-            <li><%= link_to "#{image_tag('switch.png')} Login".html_safe, new_user_session_path, class: 'navbar-link' %></li>
+            <li><%= link_to "#{image_tag('login.png')} Login".html_safe, new_user_session_path, class: 'navbar-link' %></li>
           <% end %>
           </ul>
         </section>
@@ -48,7 +48,7 @@
         <nav>
           <ul class="side-nav">
             <li class="heading">SETUP</li>
-            <li class="<%= 'active' if params[:controller] == 'registrations' %>"><%= link_to 'Edit Profile and avatar', edit_user_registration_path %></li>
+            <li class="<%= 'active' if params[:controller] == 'registrations' %>"><%= link_to "#{image_tag 'wrench.png'}Edit Profile and avatar".html_safe, edit_user_registration_path %></li>
             <li class="divider"></li>
             <li class="divider"></li>
             <li class="heading">WHAT YOU HAVE</li>

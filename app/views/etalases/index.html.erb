@@ -41,8 +41,9 @@
   <div class="large-8 columns">
     <div class="row">
       <% if @etalases != [] %>
+      <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
         <% @etalases.each do |etalase| %>
-          <div class="large-4 small-6 columns">
+          <div class="large-4 small-6 columns box">
             <%= image_tag etalase.picture %>
             <div class="panel">
               <h5><%= link_to etalase.title, etalase %></h5>
@@ -60,5 +61,6 @@
         <a href="#" class="close">×</a>
       </div>
     <% end %>
+    </div>
   </div>
 </div>
