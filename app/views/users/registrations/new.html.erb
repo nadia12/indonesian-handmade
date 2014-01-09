@@ -1,13 +1,7 @@
 <h2>Sign up</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:multipart => true}) do |f| %>
-  <!-- <div data-alert class="alert-box warning round"> -->
-    <%= devise_error_messages! %>
-    <!-- <a href="#" class="close">&times;</a> -->
-  <!-- </div>   -->
-
-  
-   
+  <%= devise_error_messages! %>
  <%= f.hidden_field :role, :value => "member" %>
  
   <div><%= f.label :name %><br />

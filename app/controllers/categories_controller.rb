@@ -4,7 +4,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @etalases = Category.find(params[:id]).etalases
-    @tutorials = Category.find(params[:id]).tutorials
+    @category = Category.find(params[:id])
+    @etalases = Category.find(params[:id]).etalases.order(:created_at).page params[:page]
+    @tutorials = Category.find(params[:id]).tutorials.order(:created_at).page params[:page]
   end
 end
