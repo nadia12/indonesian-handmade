@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, only: [:new, :create, :update, :destroy]
+  # before_filter :authenticate_user!, only: [:new, :create, :update, :destroy]
+  authorize_resource
   def index
     @comments = Comment.all
   end
@@ -24,7 +25,7 @@ class CommentsController < ApplicationController
           format.html { redirect_to etalase_path(id: @comment.commentable_id), notice: 'Comment was successfully created.' }
         elsif @comment.commentable_type == 'Tutorial'
           format.html { redirect_to tutorial_path(id: @comment.commentable_id), notice: 'Comment was successfully created.' }
-        end
+        end 
       else
         format.html { render action: 'new' }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
@@ -47,7 +48,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url }
+      format.html { redirect_to admin_comments_url }
       format.json { head :no_content }
     end
   end

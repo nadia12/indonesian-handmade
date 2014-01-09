@@ -9,9 +9,9 @@ class User < ActiveRecord::Base
   has_many :etalases
   has_many :comments
 
-  # scope :admin,     -> { where(role: 'admin') }
-  # scope :member,  -> { where(role: 'member') }
-  # scope :visitor,   -> { where(role: 'visitor') }
+  scope :admin,     -> { where(role: 'admin') }
+  scope :member,  -> { where(role: 'member') }
+  scope :visitor,   -> { where(role: 'visitor') }
   
   ROLES = %w[admin member]
 end

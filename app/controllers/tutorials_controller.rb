@@ -1,8 +1,8 @@
 class TutorialsController < ApplicationController
   before_action :set_tutorial, only: [:show, :edit, :update, :destroy]
   before_action :select_category, only: [:select]
-  before_filter :authenticate_user!, only: [:new, :create, :update, :destroy]
 
+  authorize_resource
   def index
     @tutorials = Tutorial.order(:created_at).page params[:page]
   end

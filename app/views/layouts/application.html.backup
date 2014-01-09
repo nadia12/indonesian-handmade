@@ -21,7 +21,7 @@
           <!-- Title Area -->
           <li class="name">
             <h1>
-              <li><%= link_to 'IndonesianHanmade', root_path %></li>
+              <li><%= link_to 'IndonesianHandmade', root_path %></li>
             </h1>
           </li>
           <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>

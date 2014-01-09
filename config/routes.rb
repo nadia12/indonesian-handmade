@@ -31,6 +31,8 @@ IndonesianHandmade::Application.routes.draw do
     root 'dashboard#index'
     get "tutorials", to:'tutorials#index'
     get "etalases", to:'etalases#index'
+    get "members", to:'members#index'
+    get "comments", to:'comments#index'
     resources :categories
   end
  

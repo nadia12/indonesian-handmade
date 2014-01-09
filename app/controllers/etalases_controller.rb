@@ -1,8 +1,8 @@
 class EtalasesController < ApplicationController
   before_action :set_etalase, only: [:show, :edit, :update, :destroy]
   before_action :select_category, only: [:select]
-  before_filter :authenticate_user!, only: [:new, :create, :update, :destroy]
-
+  # before_filter :authenticate_user!, only: [:new, :create, :update, :destroy]
+  authorize_resource
   def index
     @etalases = Etalase.order(:created_at).page params[:page]
   end
