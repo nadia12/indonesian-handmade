@@ -1,13 +1,13 @@
 <%= form_for(@tutorial) do |f| %>
   <% if @tutorial.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@tutorial.errors.count, "error") %> prohibited this tutorial from being saved:</h2>
-
-      <ul>
+    <div id="">
+      <h4><%= pluralize(@tutorial.errors.count, "error") %></h4>
       <% @tutorial.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+          <div data-alert="" class="alert-box small">
+            <%= msg %>
+            <a href="#" class="close">×</a>
+          </div>
       <% end %>
-      </ul>
     </div>
   <% end %>
 
