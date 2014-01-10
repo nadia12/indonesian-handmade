@@ -4,7 +4,7 @@
 
 <p>
   <strong>By:</strong>
-  <%= link_to @tutorial.user.name, show_up_profile_path(@tutorial.user.id) %>
+  <%= link_to @tutorial.user.name, show_up_profile_path(@tutorial.user) %>
 </p>
 <p>
 
@@ -52,6 +52,7 @@
     <%= f.submit %>
   </div>
 <% end %>
+
 <div class="large-6 columns">
 <% @comments.includes(:user).each do |comment|  %>
 <div class="row">

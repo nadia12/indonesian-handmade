@@ -7,5 +7,5 @@ class Etalase < ActiveRecord::Base
   has_many :comments, as: :commentable, dependent: :destroy
   belongs_to :user
   belongs_to :category
- 
+  acts_as_voteable 
 end

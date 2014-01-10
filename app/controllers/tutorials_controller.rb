@@ -48,7 +48,7 @@ class TutorialsController < ApplicationController
     user_id = @tutorial.user_id
     @tutorial.destroy
     respond_to do |format|
-      format.html { redirect_to show_up_tutorials_path user_id, notice: "Tutorial Has Been Destroy"  }
+      format.html { redirect_to show_up_tutorials_path(user_id), notice: 'Tutorial Has Been Destroy'  }
       format.json { head :no_content }
     end
   end
@@ -65,6 +65,10 @@ class TutorialsController < ApplicationController
   def newsearch
     @tutorials = []
     render 'search'  
+  end
+
+  def thumb_up
+    current_user.vote_for Tutorial.find params[:id]
   end
 
   private

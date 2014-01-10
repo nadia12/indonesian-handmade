@@ -1,8 +1,13 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
+  acts_as_voter
+  acts_as_voteable
+
   mount_uploader :avatar, AvatarUploader
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
   validates :name, :address, :phone, presence: true
   has_many :tutorials

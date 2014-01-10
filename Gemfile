@@ -25,3 +25,6 @@ gem 'foundation-rails'
 gem 'flexslider'
 gem 'masonry-rails'
 gem "jquery-fileupload-rails"
+gem "recaptcha", :require => "recaptcha/rails"
+gem 'friendly_id', '~> 5.0.0'
+gem 'thumbs_up'

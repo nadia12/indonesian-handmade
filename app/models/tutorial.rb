@@ -6,4 +6,5 @@ class Tutorial < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
   has_many :comments, as: :commentable, dependent: :destroy
   belongs_to :user
+  acts_as_voteable
 end

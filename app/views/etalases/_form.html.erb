@@ -35,11 +35,12 @@
     <%= f.label :description %><br>
      <%= f.cktext_area :description, :cols => 10 , class: 'ckeditor', :ckeditor => {:toolbar => "mini"} %>
   </div>
-  
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
 <script type="text/javascript">
   $("#price").blur(function(){
      $(this).formatNumber({format:"#,###.00", locale:"us"});

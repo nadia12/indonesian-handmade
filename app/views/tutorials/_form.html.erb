@@ -28,6 +28,10 @@
     <%= f.label :content %><br>
     <%= f.cktext_area :content, :cols => 10 , class: 'ckeditor', :ckeditor => {:toolbar => "mini"} %>
   </div>
+  <br />
+  
+  <!-- <p> <label>Are you Robot?</label></p> -->
+  <%#= recaptcha_tags :display => { :theme => "clean" }, :ssl => true %>
 
   <div class="actions">
     <%= f.submit %>

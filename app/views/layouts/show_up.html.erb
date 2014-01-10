@@ -43,15 +43,18 @@
       </nav>
   <section role="main">
     <div class="row">
-    <% if user_signed_in? %>
+    
       <div class="large-3 medium-4 columns">
         <nav>
           <ul class="side-nav">
+          <% if user_signed_in? %>      
             <li class="heading">SETUP</li>
             <li class="<%= 'active' if params[:controller] == 'registrations' %>"><%= link_to "#{image_tag 'wrench.png'}Edit Profile and avatar".html_safe, edit_user_registration_path %></li>
+            <% end %>
             <li class="divider"></li>
             <li class="divider"></li>
             <li class="heading">WHAT YOU HAVE</li>
+            <li class="<%= 'active' if params[:controller] == 'show_up' && params[:action] == '' %>"><%= link_to "#{image_tag('user.png')} Profile".html_safe, show_up_profile_path(params[:id] || current_user.id) %></li>
             <li class="<%= 'active' if params[:action] == 'tutorials'%>"><%= link_to "#{image_tag('tutorial.png')} Tutorials".html_safe, show_up_tutorials_path(params[:id] || current_user.id) %></li>
             <li class="<%= 'active' if params[:action] == 'etalases'%>"><%= link_to "#{image_tag('etalase.png')} Etalase".html_safe, show_up_etalases_path(params[:id] || current_user.id) %></li>
             <li class="<%= 'active' if params[:action] == 'comments'%>"><%= link_to "#{image_tag('comment.png')} Comment".html_safe, show_up_comments_path(params[:id] || current_user.id) %></li>
@@ -59,7 +62,7 @@
           </ul>
         </nav>
       </div>
-      <% end %>
+      <%# end %>
       <div class="large-9 medium-8 columns">
         <% if alert %>
           <div data-alert="" class="alert-box warning round">

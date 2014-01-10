@@ -23,6 +23,7 @@ IndonesianHandmade::Application.routes.draw do
       get 'select/:category_id', to: 'tutorials#select', as: 'select'
       post 'search'
       get 'search', to: 'tutorials#newsearch'
+      get 'thumb_up/:id', to: 'tutorial#thumb_up', as: 'thumb_up'
     end
   end
   resources :comments
