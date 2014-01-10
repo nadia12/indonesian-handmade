@@ -45,12 +45,11 @@
     <div class="row">
     
       <div class="large-3 medium-4 columns">
+      <% if user_signed_in? %>      
         <nav>
           <ul class="side-nav">
-          <% if user_signed_in? %>      
             <li class="heading">SETUP</li>
             <li class="<%= 'active' if params[:controller] == 'registrations' %>"><%= link_to "#{image_tag 'wrench.png'}Edit Profile and avatar".html_safe, edit_user_registration_path %></li>
-            <% end %>
             <li class="divider"></li>
             <li class="divider"></li>
             <li class="heading">WHAT YOU HAVE</li>
@@ -61,6 +60,7 @@
             <li class="divider"></li>
           </ul>
         </nav>
+        <% end %>
       </div>
       <%# end %>
       <div class="large-9 medium-8 columns">
