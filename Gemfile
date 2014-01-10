@@ -20,11 +20,19 @@ gem 'mini_magick'
 gem 'ckeditor'
 
 gem 'debugger', group: [:development, :test]
-gem 'quiet_assets', :group => :development
+gem 'quiet_assets', group: :development
 gem 'foundation-rails'
 gem 'flexslider'
 gem 'masonry-rails'
 gem "jquery-fileupload-rails"
-gem "recaptcha", :require => "recaptcha/rails"
+gem "recaptcha", require: "recaptcha/rails"
 gem 'friendly_id', '~> 5.0.0'
 gem 'thumbs_up'
+
+gem 'unicorn', group: :production
+
+group :development do
+  gem 'capistrano', '~> 2'
+  gem 'capistrano-unicorn', require: false
+
+end
