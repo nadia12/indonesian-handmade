@@ -38,6 +38,8 @@
                 <% end %>
               </ul>
             </li>
+              <li class="<%= 'active' if params[:controller] == 'admin' %>"><%= link_to "Administrator".html_safe, admin_root_path if can?(:manage, :all)%>
+              </li>
           </ul>
 
           <ul class="right">

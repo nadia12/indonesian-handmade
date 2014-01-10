@@ -3,7 +3,7 @@ class AdminController < ApplicationController
   before_filter :authenticate_user!, :admin?
   
   def admin?
-    redirect_to root_path unless current_user.role == "admin"
+    redirect_to admin_root_path unless current_user.role == "admin"
   end
 
 end

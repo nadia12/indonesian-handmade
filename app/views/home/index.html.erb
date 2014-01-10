@@ -2,21 +2,21 @@
   <h1>Welcome To Indonesian Handmade</h1>
   <p>It's a little ostentatious, but useful for important content.</p>
 </div>
-
+<div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
 <% if @etalases != []%>
-  <h3> Latest Product <h3>
+  <!-- <h3> Latest Product <h3> -->
     <div class="medium-9 columns">
       <div class="row">
       <% @etalases.each do |etalase| %>
-        <div class="large-4 small-6 columns">
-           <%=link_to image_tag(etalase.picture), etalase %>
+        <div class="large-4 small-6 columns box">
+          <%=link_to image_tag(etalase.picture), etalase %>
           <div class="panel">
             <h5><b><%=etalase.title %></b></h5>
             <h6><%=number_to_currency etalase.price ,  precision: 0 , unit: "Rp. ", seperator: "."%> </h6>
-            <h6><i>by: <%= link_to etalase.user.name, show_up_profile_path(url_ok(etalase.user)) %></i></h6>
+            <h6><i>by: <%= link_to etalase.user.name, show_up_profile_path(etalase.user.friendly_id) %></i></h6>
           </div>
-        <% end %>
         </div>
+        <% end %>
       <%= paginate @etalases %>
       </div>
     </div>
@@ -29,17 +29,17 @@
 <% end %>
   
 <% if @tutorials != [] %>
-  <h3> Latest Tutorial </h3>
+  <!-- <h3> Latest Tutorsial </h3> -->
     <div class="row">
       <% @tutorials.each do |tutorial| %>
-        <div class="large-4 small-6 columns">
-          <%=link_to image_tag(tutorial.picture), tutorial %>
+        <div class="large-4 small-6 columns box">
+          <%= image_tag tutorial.picture %>
           <div class="panel">
-            <h5><b><%= tutorial.title %></b></h5>
+            <h5><b><%= link_to tutorial.title, tutorial %></b></h5>
             <h6><i>by: <%= link_to tutorial.user.name, show_up_profile_path(tutorial.user) %></i><h6>
           </div>
-        <% end %>
       </div>
+      <% end %>
     </div>
     <%= paginate @tutorials %>
   </div>
@@ -49,3 +49,4 @@
     <a href="#" class="close">×</a>
   </div>
 <% end %>
+</div>

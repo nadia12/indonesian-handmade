@@ -28,9 +28,9 @@
             <%= image_tag etalase.picture %>
             <div class="panel">
               <h5><%= link_to etalase.title, etalase %></h5>
-              by, <%= link_to etalases.user.name, show_up_profile_path(etalases.user.id) %><br \>
-              <h5><%= etalases.price %></h5>
-              <h6><%= etalases.created_at.to_s[0..15] %></h6>
+              by, <%= link_to etalase.user.name, show_up_profile_path(etalase.user.id) %><br \>
+              <h5><%= etalase.price %></h5>
+              <h6><%= etalase.created_at.to_s[0..15] %></h6>
             </div>
           </div>
         <% end %>
